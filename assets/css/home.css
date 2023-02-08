@@ -4,6 +4,7 @@
     background-size: cover;
     position: absolute;
     width: 110%;
+    height: 100vh;
     left: -5%;
     top: -5%;
 }

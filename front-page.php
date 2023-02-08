@@ -14,18 +14,12 @@
  * @since Twenty Twenty-One 1.0
  */
 
-get_header(); ?>
+// get_header(); ?>
 
-<div data-relative-input="true" id="scene" class="scene">
+
+<div  id="scene" class="scene">
   <div data-depth="0.2" class="layer"><div class="background"></div></div>
-  <div data-depth="0.6">My second Layer!</div>
 </div>
-
-<?php if ( is_home() && ! is_front_page() && ! empty( single_post_title( '', false ) ) ) : ?>
-	<header class="page-header alignwide">
-		<h1 class="page-title"><?php single_post_title(); ?></h1>
-	</header><!-- .page-header -->
-<?php endif; ?>
 
 <?php
 if ( have_posts() ) {
