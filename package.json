@@ -1,0 +1,43 @@
+{
+  "name": "twentytwentythreechild",
+  "version": "1.0.0",
+  "description": "=== Twenty Twenty-Three Child === Contributors: Giacomo Secchi Requires at least: 5.8 Tested up to: 5.9 Requires PHP: 5.7 License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+		"check-engines": "wp-scripts check-engines",
+		"check-licenses": "wp-scripts check-licenses",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"lint:md:docs": "wp-scripts lint-md-docs",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start",
+    "start:hot": "wp-scripts start --hot",
+		"start:custom": "wp-scripts start entry-one.js entry-two.js --output-path=custom",
+		"start:copy-php": "wp-scripts start --webpack-copy-php",
+		"start:custom-directory": "wp-scripts start --webpack-src-dir=custom-directory",
+		"test:e2e": "wp-scripts test-e2e",
+		"test:unit": "wp-scripts test-unit-js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giacomo-secchi/personal-website-wp-child-theme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giacomo-secchi/personal-website-wp-child-theme/issues"
+  },
+  "homepage": "https://github.com/giacomo-secchi/personal-website-wp-child-theme#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^25.3.0"
+  },
+  "dependencies": {
+    "parallax-js": "^3.1.0"
+  }
+}
