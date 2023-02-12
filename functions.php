@@ -40,7 +40,7 @@ function twentytwentythreechild_scripts() {
 
 	endif;
 
-	wp_enqueue_script( 'twentytwentythreechild-2-scripts', get_stylesheet_directory_uri() . '/assets/js/main.js', array( 'parallax-js' ), $version_string, true );
+	wp_enqueue_script( 'twentytwentythreechild-scripts', get_stylesheet_directory_uri() . '/assets/js/main.js', array( 'parallax-js' ), $version_string, true );
 
 }
 
