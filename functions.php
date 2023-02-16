@@ -33,10 +33,10 @@ function twentytwentythreechild_scripts() {
 	// 	true
 	// );
 
-	if ( is_front_page() || is_home() ) :
+	if ( is_page_template( 'landing-page' ) ) :
 		wp_enqueue_script( 'parallax-js', get_stylesheet_directory_uri() . '/assets/js/parallax.min.js', array(  ), '3.1.0', true );
 
-		wp_enqueue_style( 'home', get_stylesheet_directory_uri() . '/assets/css/home.css', array(), $version_string );
+		wp_enqueue_style( 'landing', get_stylesheet_directory_uri() . '/assets/css/landing.css', array(), $version_string );
 
 	endif;
 
@@ -45,4 +45,33 @@ function twentytwentythreechild_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'twentytwentythreechild_scripts' );
+
+
+if ( ! function_exists( 'twentytwentythreechild_support' ) ) :
+
+	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
+	 *
+	 * @since Twenty Twenty-Two 1.0
+	 *
+	 * @return void
+	 */
+	function twentytwentythreechild_support() {
+
+		// Add support for block styles.
+		add_theme_support( 'wp-block-styles' );
+
+		// Enqueue editor styles.
+		add_editor_style( 'style.css' );
+
+	}
+
+endif;
+
+add_action( 'after_setup_theme', 'twentytwentythreechild_support' );
+
+ 
+
+ 
+
 
