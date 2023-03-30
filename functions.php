@@ -33,6 +33,8 @@ function twentytwentythreechild_scripts() {
 	// 	true
 	// );
 
+
+
 	if ( is_page_template( 'landing-page' ) ) :
 		wp_enqueue_script( 'parallax-js', get_stylesheet_directory_uri() . '/assets/js/parallax.min.js', array(  ), '3.1.0', true );
 
@@ -75,3 +77,41 @@ add_action( 'after_setup_theme', 'twentytwentythreechild_support' );
  
 
 
+function wpfieldwork_editor_assets() {
+ 
+	wp_enqueue_script(
+	  'wpfieldwork-block-variations',
+	  get_stylesheet_directory_uri() . '/assets/js/block-variations.js',
+	  array( 'wp-blocks' )
+	);
+  }
+  add_action( 'enqueue_block_editor_assets', 'wpfieldwork_editor_assets' );
+
+
+ 
+
+  add_filter( 'pre_render_block', 'wpfieldwork_upcoming_events_pre_render_block', 10, 2 );
+function wpfieldwork_upcoming_events_pre_render_block( $pre_render, $parsed_block ) {
+  // Verify it's the block that should be modified using the namespace
+ 
+
+  if ( ! empty($parsed_block['attrs']['namespace']) && 'jetpack/projects-list' === $parsed_block['attrs']['namespace'] ) {
+    
+
+	add_filter(
+      'query_loop_block_query_vars',
+      function( $query, $block ) use ( $parsed_block ) {
+        // get today's date in Ymd format
+        // the meta key was portfolio_creation_date, compare to today to get event's from today or later
+    
+		var_dump($parsed_block['attrs']['query']);
+
+
+        return $query;
+      },
+      10,
+      2
+    );
+  }
+  return $pre_render;
+}
