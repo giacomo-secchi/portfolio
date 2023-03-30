@@ -34,7 +34,8 @@ wp.blocks.registerBlockVariation( 'core/query', {
           'core/post-template',
           {},
           [
-            [ 'core/post-title' ]
+            [ 'core/post-title' ],
+						[ 'core/post-featured-image' ],
           ],
         ]
       ]
