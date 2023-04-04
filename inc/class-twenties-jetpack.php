@@ -26,8 +26,20 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 			add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
 			add_filter( 'pre_render_block',  array( $this, 'projects_pre_render_block' ), 10, 2 );
 			add_filter( 'rest_jetpack-portfolio_query', array( $this, 'rest_project_date' ), 10, 2 );
+			add_filter( 'the_content', array( $this, 'print_metadata' ) );
+
 		}
 
+		public function print_metadata( $content ) {
+			$value1 = get_post_meta( get_the_ID(), '_mcf_project_year', true );
+			$value2 = get_post_meta( get_the_ID(), '_mcf_project_client', true );
+			// check value is set before outputting
+			if ( $value2 ) {
+				return sprintf( "%s (%s)", $content, esc_html( $value2 ) );
+			} else {
+				return $content;
+			}
+ 		}
 
 
 		public function editor_assets() {
@@ -39,8 +51,8 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 			// $dateFilter = $request->get_param( 'test' );
 
 			// add same meta query arguments
-			if ( isset( $request['test'] ) ) {
-				$args['meta_key'] = 'test';
+			if ( isset( $request['_mcf_project_year'] ) ) {
+				$args['meta_key'] = '_mcf_project_year';
 				$args['orderby'] = 'meta_value_num';
 				$args['order'] = 'ASC';
 			}
@@ -64,10 +76,13 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 			add_filter( 'query_loop_block_query_vars',
 				function( $query, $block ) use ( $parsed_block ) {
 					// the meta key was portfolio_creation_date, compare to today to get event's from today or later
-					$query['meta_key'] = 'test';
+					$query['meta_key'] = '_mcf_project_year';
+
 					// also likely want to set order by this key in ASC so next event listed first
 					$query['orderby'] = 'meta_value_num';
 					$query['order'] = 'ASC';
+
+
 
 					return $query;
 			}, 10, 2 );

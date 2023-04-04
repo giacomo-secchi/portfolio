@@ -4,9 +4,6 @@
 	"settings": {
 		"spacing": {
 			"blockGap": false
-		},
-		"typography": {
-			"fontFamilies": []
 		}
 	}
 }
