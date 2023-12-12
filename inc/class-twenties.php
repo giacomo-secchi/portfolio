@@ -24,11 +24,6 @@ if ( ! class_exists( 'Twenties_Child' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup' ) );
-
-			add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ), 10 );
-			// add_action( 'enqueue_block_assets', array( $this, 'block_assets' ) );
-
-
 		}
 
 		/**
@@ -73,7 +68,6 @@ if ( ! class_exists( 'Twenties_Child' ) ) :
 			/**
 			 * Enqueue editor styles.
 			 */
-			// add_editor_style( array( 'assets/css/base/gutenberg-editor.css', $this->google_fonts() ) );
 			// add_editor_style( 'style.css' );
 
 
@@ -83,26 +77,6 @@ if ( ! class_exists( 'Twenties_Child' ) ) :
 			add_theme_support( 'responsive-embeds' );
  		}
 
-
-
-		/**
-		 * Enqueue scripts and styles.
-		 *
-		 * @since  1.0.0
-		 */
-		public function scripts() {
-			global $version_string;
-
-
-			// if ( is_page_template( 'landing-page' ) ) :
-			// 	wp_enqueue_script( 'parallax-js', get_stylesheet_directory_uri() . '/assets/js/parallax.min.js', array(  ), '3.1.0', true );
-
-			// 	wp_enqueue_style( 'landing', get_stylesheet_directory_uri() . '/assets/css/landing.css', array(), $version_string );
-
-			// endif;
-
-			// wp_enqueue_script( 'twentytwentythreechild-scripts', get_stylesheet_directory_uri() . '/assets/js/main.js', array( 'parallax-js' ), $version_string, true );
-		}
 	}
 endif;
 
