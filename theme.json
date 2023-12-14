@@ -380,6 +380,15 @@
 					"fontWeight": "normal",
 					"lineHeight": "1.4"
 				}
+			},
+			"core/button": {
+				"variations": {
+					"outline" : {
+						"color": {
+							"text": "var(--wp--preset--color--primary)"
+						}
+					}
+				}
 			}
 		},
 		"color": {
@@ -389,7 +398,7 @@
 		"elements": {
 			"button": {
 				"border": {
-					"radius": "8px"
+					"radius": "6px"
 				},
 				"color": {
 					"background": "var(--wp--preset--color--primary)",
