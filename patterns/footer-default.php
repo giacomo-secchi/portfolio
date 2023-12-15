@@ -13,7 +13,7 @@
 		<!-- wp:group {"style":{"spacing":{"blockGap":"6px"}},"layout":{"type":"flex","flexWrap":"wrap"}} -->
 		<div class="wp-block-group">
 			<!-- wp:paragraph {"fontSize":"small"} -->
-			<p class="has-small-font-size"><?php esc_html_e( '&copy; ' . get_bloginfo( 'name' ) . ' ' . gmdate( 'Y' ) ); ?></p>
+			<p class="has-small-font-size"><?php esc_html_e( '&copy; ' . gmdate( 'Y' ) . ' ' . get_bloginfo( 'name' ) ); ?></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
