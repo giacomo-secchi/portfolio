@@ -1,9 +1,9 @@
 a,
 a:not(.wp-element-button) {
-	transition: text-underline-offset 200ms;
-    text-decoration-thickness: 3px;
 	text-decoration-color: var(--wp--preset--color--secondary);
+	text-decoration-thickness: 3px;
 	text-underline-offset: 0.2em;
+	transition: text-underline-offset 200ms;
 }
 
 a:focus,
