@@ -489,12 +489,12 @@
 				},
 				":hover": {
 					"typography": {
-						"textDecoration": "3px underline var(--wp--preset--color--secondary)"
+						"textDecoration": "underline"
 					}
 				},
 				":focus": {
 					"typography": {
-						"textDecoration": "3px underline var(--wp--preset--color--secondary)"
+						"textDecoration": "underline"
 					}
 				},
 				":active": {
@@ -502,12 +502,12 @@
 						"text": "var(--wp--preset--color--primary)"
 					},
 					"typography": {
-						"textDecoration": "3px underline var(--wp--preset--color--secondary)"
+						"textDecoration": "underline"
 					}
 				},
 				"typography": {
 					"fontWeight": "600",
-					"textDecoration": "3px underline var(--wp--preset--color--secondary)"
+					"textDecoration": " underline"
 				}
 			}
 		},
