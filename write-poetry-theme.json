@@ -1,0 +1,14 @@
+{
+  "files": {
+		"scripts": {},
+    "styles": [
+      {
+        "handle" : "twentytwenty-child-base-style",
+        "src" : "/assets/css/base.css"
+      },
+      {
+        "handle" : "dashicons"
+      }
+    ]
+  }
+}

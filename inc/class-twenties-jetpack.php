@@ -46,6 +46,8 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 			wp_enqueue_script( 'twenties-block-variations', get_stylesheet_directory_uri() . '/assets/js/block-variations.js', array( 'wp-blocks' ) );
 		}
 
+
+
 		public function rest_project_date( $args, $request ) {
 
 			// $dateFilter = $request->get_param( 'test' );

@@ -1,0 +1,22 @@
+a,
+a:focus,
+a:hover,
+a:not(.wp-element-button) {
+	text-underline-offset: 2px;
+	transition: text-underline-offset 200ms;
+}
+
+a:hover,
+a:hover:not(.wp-element-button) {
+	text-underline-offset: 5px;
+}
+
+a:where(:not(.wp-element-button))[target="_blank"]:after {
+	font: 23px/23px dashicons;
+	content: "\f504";
+	position: relative;
+	padding-left: 3px;
+	display: inline-block;
+	text-decoration: none;
+	vertical-align: text-bottom;
+}
