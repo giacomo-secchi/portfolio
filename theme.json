@@ -345,6 +345,15 @@
 	},
 	"styles": {
 		"blocks": {
+			"core/post-content": {
+				"elements": {
+					"link": {
+						"color": {
+							"text": "var(--wp--preset--color--primary)"
+						}
+					}
+				}
+			},
 			"core/post-title": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--x-large)",
