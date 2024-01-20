@@ -345,6 +345,12 @@
 	},
 	"styles": {
 		"blocks": {
+			"core/post-title": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--x-large)",
+					"fontWeight": "600"
+				}
+			},
 			"core/site-title": {
 				"elements": {
 					"link": {
