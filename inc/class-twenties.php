@@ -24,6 +24,8 @@ if ( ! class_exists( 'Twenties_Child' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup' ) );
+			add_action( 'init', array( $this, 'register_block_bindings' ) );
+			add_filter( 'writepoetry_register_block_style', array( $this, 'register_block_style' ) );
 		}
 
 		/**
@@ -77,6 +79,50 @@ if ( ! class_exists( 'Twenties_Child' ) ) :
 			add_theme_support( 'responsive-embeds' );
  		}
 
+		public function register_block_style() {
+			// Define block styles with their labels and CSS styles
+			$block_styles = array(
+				'core/list'	=> array(
+					array(
+						'name'			=> 'primary-disc-list',
+						'label'			=> __( 'Primary Color Disc', 'twenties' ),
+						'inline_style' => '
+						ul.is-style-primary-disc-list {
+							list-style-type: disc;
+						}
+
+						ul.is-style-primary-disc-list li::marker {
+							color: var(--wp--preset--color--primary);
+						}',
+					),
+					array(
+						'name'			=> 'secondary-disc-list',
+						'label'			=> __( 'Secondary Color Disc', 'twenties' ),
+						'inline_style' => '
+						ul.is-style-secondary-disc-list {
+							list-style-type: disc;
+						}
+
+						ul.is-style-secondary-disc-list li::marker {
+							color: var(--wp--preset--color--secondary);
+						}',
+					)
+				)
+			);
+
+			return $block_styles;
+		}
+
+		public function register_block_bindings() {
+			register_block_bindings_source( 'twenties/copyright', array(
+				'label'              => __( 'Copyright', 'twenties' ),
+				'get_value_callback' => array( $this, 'copyright_binding' )
+			) );
+		}
+
+		public function copyright_binding() {
+			return '&copy; ' . date( 'Y' );
+		}
 	}
 endif;
 

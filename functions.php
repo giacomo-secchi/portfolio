@@ -13,7 +13,7 @@ $version_string = is_string( $theme_version ) ? $theme_version : false;
 
 
 
-$storefront = (object) array(
+$twenties = (object) array(
 	'version'    => $theme_version,
 
 	/**
@@ -22,8 +22,12 @@ $storefront = (object) array(
 	'main'       => require 'inc/class-twenties.php',
 );
 
-
-
+/**
+ * Initialize Jetpack compatibility.
+ */
 if ( class_exists( 'Jetpack' ) ) {
-	$storefront->jetpack = require 'inc/class-twenties-jetpack.php';
+	$twenties->jetpack = require 'inc/class-twenties-jetpack.php';
 }
+
+
+// require 'inc/class-twenties-ajax.php';

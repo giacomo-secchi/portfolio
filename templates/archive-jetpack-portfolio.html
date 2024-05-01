@@ -1,36 +1,75 @@
-<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:template-part {"slug":"portfolio-header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
-<main class="wp-block-group" style="margin-top:var(--wp--preset--spacing--70);margin-bottom:var(--wp--preset--spacing--70)">
-
-
-
-
-	<!-- wp:query-title {"type":"archive","align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}}} /-->
-
-
-	<!-- wp:query {"queryId":1,"query":{"perPage":6,"pages":0,"offset":0,"postType":"jetpack-portfolio","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"namespace":"jetpack/projects-list"} -->
+<!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group" style="margin-top:var(--wp--preset--spacing--40);margin-bottom:var(--wp--preset--spacing--40)">
+	<!-- wp:query {"query":{"pages":0,"offset":0,"postType":"jetpack-portfolio","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"perPage":10},"namespace":"jetpack/projects-list","align":"wide","layout":{"type":"default"}} -->
 	<div class="wp-block-query alignwide">
 		<!-- wp:post-template {"align":"wide"} -->
-			<!-- wp:post-title /-->
+			<!-- wp:columns {"style":{"shadow":"var:preset|shadow|sm"},"backgroundColor":"white"} -->
+			<div class="wp-block-columns has-white-background-color has-background"  style="box-shadow:var(--wp--preset--shadow--sm)">
+				<!-- wp:column -->
+				<div class="wp-block-column">
+					<!-- wp:post-title /-->
+					<!-- wp:columns -->
+					<div class="wp-block-columns">
+						<!-- wp:column -->
+						<div class="wp-block-column">
+							<!-- wp:paragraph -->
+							<p><strong>Client</strong></p>
+							<!-- /wp:paragraph -->
+							<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"writepoetry_project_client"}}}},"style":{"spacing":{"margin":{"top":"0"}}},"textColor":"cyan-bluish-gray","fontSize":"small"} -->
+							<p class="has-cyan-bluish-gray-color has-text-color has-small-font-size" style="margin-top:0"></p>
+							<!-- /wp:paragraph -->
+						</div>
+						<!-- /wp:column -->
+
+						<!-- wp:column -->
+						<div class="wp-block-column">
+							<!-- wp:paragraph -->
+							<p><strong>Type</strong></p>
+							<!-- /wp:paragraph -->
+							<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"twenties/jetpack-projects-infos","args":{"key":"tags"}}}},"style":{"spacing":{"margin":{"top":"0"}}},"textColor":"cyan-bluish-gray","fontSize":"small"} -->
+							<p class="has-cyan-bluish-gray-color has-text-color has-small-font-size" style="margin-top:0"></p>
+							<!-- /wp:paragraph -->
+						</div>
+						<!-- /wp:column -->
+
+						<!-- wp:column -->
+						<div class="wp-block-column">
+							<!-- wp:paragraph -->
+							<p><strong>What I did</strong></p>
+							<!-- /wp:paragraph -->
+							<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"twenties/jetpack-projects-infos","args":{"key":"types"}}}},"style":{"spacing":{"margin":{"top":"0"}}},"textColor":"cyan-bluish-gray","fontSize":"small"} -->
+							<p class="has-cyan-bluish-gray-color has-text-color has-small-font-size" style="margin-top:0"></p>
+							<!-- /wp:paragraph -->
+						</div>
+						<!-- /wp:column -->
 
 
-			<!-- wp:post-content /-->
+					</div>
+					<!-- /wp:columns -->
 
+					<!-- wp:post-content /-->
+				</div>
+				<!-- /wp:column -->
 
-			<!-- wp:post-featured-image {"isLink":true,"width":"100%","height":"max(15vw, 30vh)","align":"wide"} /-->
+				<!-- wp:column -->
+				<div class="wp-block-column">
+						<!-- wp:post-featured-image {"width":"100%","height":"clamp(15vw, 30vh, 400px)","align":"wide"} /-->
+				</div>
+				<!-- /wp:column -->
+			</div>
+			<!-- /wp:columns -->
 
-			<!-- wp:spacer {"height":"var(--wp--preset--spacing--50)"} -->
-			<div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
+			<!-- wp:spacer {"height":"var(--wp--preset--spacing--40)"} -->
+			<div style="height:var(--wp--preset--spacing--40)" aria-hidden="true" class="wp-block-spacer"></div>
 			<!-- /wp:spacer -->
 		<!-- /wp:post-template -->
-
 	</div>
 	<!-- /wp:query -->
-
-
-
 </main>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
+
+
