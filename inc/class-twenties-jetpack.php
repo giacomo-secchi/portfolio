@@ -29,8 +29,6 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 		public function __construct() {
 			add_filter( 'pre_render_block',  array( $this, 'projects_pre_render_block' ), 10, 2 );
 			// add_filter( 'rest_jetpack-portfolio_query', array( $this, 'rest_project_date' ), 10, 2 );
-			// add_filter( 'the_content', array( $this, 'print_metadata' ) );
-			// add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
 
 			add_action( 'init', array( $this, 'register_block_bindings' ) );
 			add_filter( 'wp', function () {
@@ -38,17 +36,6 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 				add_filter( 'is_post_type_viewable', array( $this, 'change_post_type_visibility' ), 10, 2 );
 			}, 10, 2 );
 		}
-
-		public function print_metadata( $content ) {
-			$value1 = get_post_meta( get_the_ID(), '_mcf_project_year', true );
-			$value2 = get_post_meta( get_the_ID(), '_mcf_project_client', true );
-			// check value is set before outputting
-			if ( $value2 ) {
-				return sprintf( "%s (%s)", $content, esc_html( $value2 ) );
-			} else {
-				return $content;
-			}
- 		}
 
 
 		public function rest_project_date( $args, $request ) {
@@ -79,11 +66,11 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 						$query['post_type'] = 'jetpack-portfolio';
 
 						// the meta key was portfolio_creation_date, compare to today to get event's from today or later
-						$query['meta_key'] = 'writepoetry_project_client';
+						$query['meta_key'] = 'writepoetry_project_year';
 
 						// also likely want to set order by this key in ASC so next event listed first
 						$query['orderby'] = 'meta_value';
-						$query['order'] = 'ASC';
+						$query['order'] = 'desc';
 
 						return $query;
 				}, 10, 2 );
@@ -121,10 +108,6 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 			$wp_query->set_404();
 			status_header( 404 );
 			get_template_part( '404' );
-		}
-
-		public function editor_assets() {
-			wp_enqueue_script( 'twenties-block-variations', get_stylesheet_directory_uri() . '/assets/js/block-variations.js', array( 'wp-blocks' ) );
 		}
 
 		public function register_block_bindings() {
