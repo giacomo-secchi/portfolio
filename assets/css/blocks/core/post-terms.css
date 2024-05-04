@@ -1,0 +1,7 @@
+.taxonomy-jetpack-portfolio-type .wp-block-post-terms__prefix,
+.taxonomy-jetpack-portfolio-tag .wp-block-post-terms__prefix {
+	display: block;
+	font-weight: bold;
+	font-size: var(--wp--preset--font-size--small);
+	text-transform: uppercase;
+}

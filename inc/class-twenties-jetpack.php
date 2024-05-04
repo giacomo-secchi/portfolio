@@ -28,52 +28,65 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 		 */
 		public function __construct() {
 			add_filter( 'pre_render_block',  array( $this, 'projects_pre_render_block' ), 10, 2 );
-			// add_filter( 'rest_jetpack-portfolio_query', array( $this, 'rest_project_date' ), 10, 2 );
+			add_filter( 'rest_jetpack-portfolio_query', array( $this, 'rest_project_date' ), 10, 2 );
+			// add_action( 'init', array( $this, 'register_block_bindings' ) );
 
-			add_action( 'init', array( $this, 'register_block_bindings' ) );
 			add_filter( 'wp', function () {
 				add_action( 'template_redirect', array( $this, 'redirect_single_posts_to_not_found' ), 10, 2 );
+
 				add_filter( 'is_post_type_viewable', array( $this, 'change_post_type_visibility' ), 10, 2 );
 			}, 10, 2 );
 		}
 
 
+
 		public function rest_project_date( $args, $request ) {
 
-			// $dateFilter = $request->get_param( 'test' );
-
-			// add same meta query arguments
-			if ( isset( $request['_mcf_project_year'] ) ) {
-				$args['meta_key'] = '_mcf_project_year';
-				$args['orderby'] = 'meta_value_num';
-				$args['order'] = 'ASC';
-			}
-
+			// add same meta query arguments for rest api (backend).
+			$args = $this->filter_query();
 			return $args;
 		}
 
 
+		private function filter_query() {
+			$queried_object = get_queried_object();
 
+			if ( $queried_object instanceof WP_Term ) {
+				$query['tax_query'] = array(
+					'relation' => 'AND',
+					array(
+						'taxonomy' => get_queried_object()->taxonomy,
+						'field'    => 'slug',
+						'terms'    => get_queried_object()->slug,
+					),
+				);
+			}
+
+			$query['post_type'] = 'jetpack-portfolio';
+
+			// The meta key would be the writepoetry_project_year field assigned to the jetpack-portfolio CPT
+			$query['meta_key'] = 'writepoetry_project_year';
+
+			// also likely want to set order by this key in desc so more recent project are listed first.
+			$query['orderby'] = 'meta_value';
+			$query['order'] = 'desc';
+
+			return $query;
+		}
 
 		public function projects_pre_render_block( $pre_render, $parsed_block ) {
-			// Verify it's the block that should be modified using the namespace
+			// Verify it's the block that should be modified using the namespace.
 			if ( isset( $parsed_block['attrs']['namespace'] )  && 'jetpack/projects-list' === $parsed_block['attrs']['namespace'] ) {
-
+				// Filters the arguments which will be passed to WP_Query for the Query Loop Block.
 				add_filter( 'query_loop_block_query_vars',
-
 					function( $query, $block ) use ( $parsed_block ) {
-
-						$query['post_type'] = 'jetpack-portfolio';
-
-						// the meta key was portfolio_creation_date, compare to today to get event's from today or later
-						$query['meta_key'] = 'writepoetry_project_year';
-
-						// also likely want to set order by this key in ASC so next event listed first
-						$query['orderby'] = 'meta_value';
-						$query['order'] = 'desc';
-
-						return $query;
-				}, 10, 2 );
+						// add same meta query arguments for front-end.
+						$query = $this->filter_query();
+                		return $query;
+					},
+					10,
+					2
+				);
 			}
 
 		  	return $pre_render;
