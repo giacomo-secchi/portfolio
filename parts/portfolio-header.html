@@ -1,8 +1,22 @@
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
-	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
+	<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
 	<div class="wp-block-group alignwide" style="padding-bottom:var(--wp--preset--spacing--40)">
-		<!-- wp:site-title {"level":0} /--><!-- wp:query-title {"type":"archive","showPrefix":false} /-->
+		<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+		<div class="wp-block-group">
+			<!-- wp:site-title {"level":0} /-->
+
+			<!-- wp:query-title {"type":"archive","showPrefix":false} /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"layout":{"type":"constrained"}} -->
+		<div class="wp-block-group">
+			<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"twenties/translatepress-language-switcher","args":{"key":"you can pass any custom arguments here"}}}}} -->
+			<p></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 </div>
