@@ -67,6 +67,9 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 			// The meta key would be the writepoetry_project_year field assigned to the jetpack-portfolio CPT
 			$query['meta_key'] = 'writepoetry_project_year';
 
+			// number of post to show per page. Use 'posts_per_page'=>-1 to show all posts
+			$query['posts_per_page'] = -1;
+
 			// also likely want to set order by this key in desc so more recent project are listed first.
 			$query['orderby'] = 'meta_value';
 			$query['order'] = 'desc';
