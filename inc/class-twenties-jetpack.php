@@ -29,6 +29,7 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 		public function __construct() {
 			add_filter( 'pre_render_block',  array( $this, 'projects_pre_render_block' ), 10, 2 );
 			add_filter( 'rest_jetpack-portfolio_query', array( $this, 'rest_project_date' ), 10, 2 );
+			add_filter( 'wpseo_exclude_from_sitemap_by_post_ids',  array( $this, 'exclude_posts_from_xml_sitemaps' ), 10, 2 );
 			// add_action( 'init', array( $this, 'register_block_bindings' ) );
 
 			add_filter( 'wp', function () {
@@ -166,6 +167,24 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 			}
 
 			return implode( ', ', array_column( $terms, 'name' ) );
+		}
+
+		/**
+		 * Excludes posts from XML sitemaps.
+		 *
+		 * @return array The IDs of posts to exclude.
+		 */
+		public function exclude_posts_from_xml_sitemaps() {
+			$args = array(
+				'post_type'      => self::CUSTOM_POST_TYPE,
+				'posts_per_page' => -1,
+				'fields'         => 'ids', // Only get post IDs
+			);
+
+			$post_ids = get_posts( $args );
+
+			// $post_ids now contains an array of post IDs
+			return $post_ids;
 		}
 	}
 endif;
