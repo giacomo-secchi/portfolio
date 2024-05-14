@@ -3,64 +3,64 @@
 	<!-- wp:query {"query":{"pages":0,"offset":0,"postType":"jetpack-portfolio","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"perPage":10},"namespace":"jetpack/projects-list","align":"wide","layout":{"type":"default"}} -->
 	<div class="wp-block-query alignwide">
 		<!-- wp:post-template {"align":"wide"} -->
-			<!-- wp:columns {"style":{"shadow":"var:preset|shadow|sm"},"backgroundColor":"white"} -->
-			<div class="wp-block-columns has-white-background-color has-background"  style="box-shadow:var(--wp--preset--shadow--sm)">
-				<!-- wp:column -->
-				<div class="wp-block-column">
-					<!-- wp:post-title /-->
-					<!-- wp:columns -->
-					<div class="wp-block-columns">
-						<!-- wp:column -->
-						<div class="wp-block-column">
-							<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase"}},"fontSize":"small"} -->
-							<p class="has-small-font-size" style="text-transform:uppercase"><strong>Year</strong></p>
-							<!-- /wp:paragraph -->
 
-							<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"writepoetry_project_year"}}}},"style":{"spacing":{"margin":{"top":"0"}}},"textColor":"cyan-bluish-gray","fontSize":"small"} -->
-							<p class="has-cyan-bluish-gray-color has-text-color has-small-font-size" style="margin-top:0"></p>
-							<!-- /wp:paragraph -->
-						</div>
-						<!-- /wp:column -->
+			<!-- wp:group {"style":{"shadow":"var:preset|shadow|sm"},"backgroundColor":"white"} -->
+			<div class="wp-block-group has-white-background-color has-background" style="box-shadow:var(--wp--preset--shadow--sm)">
 
-						<!-- wp:column -->
-						<div class="wp-block-column">
-							<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase"}},"fontSize":"small"} -->
-							<p class="has-small-font-size" style="text-transform:uppercase"><strong>Client</strong></p>
-							<!-- /wp:paragraph -->
+				<!-- wp:cover {"useFeaturedImage":true,"dimRatio":70,"overlayColor":"contrast","isUserOverlayColor":true,"align":"center","style":{"color":[]},"layout":{"type":"constrained"}} -->
+				<div class="wp-block-cover aligncenter"><span aria-hidden="true" class="wp-block-cover__background has-contrast-background-color has-background-dim-70 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:separator {"gradient":"vertical-secondary-to-base","className":"is-style-wide"} -->
+					<hr class="wp-block-separator has-alpha-channel-opacity has-vertical-secondary-to-base-gradient-background has-background is-style-wide"/>
+					<!-- /wp:separator --><!-- wp:post-title {"style":{"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"textColor":"white","fontSize":"x-large"} /-->
+					<!-- wp:separator {"backgroundColor":"secondary","className":"is-style-wide"} -->
+					<hr class="wp-block-separator has-text-color has-secondary-color has-alpha-channel-opacity has-secondary-background-color has-background is-style-wide"/>
+					<!-- /wp:separator --></div></div>
+				<!-- /wp:cover -->
 
-							<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"writepoetry_project_client"}}}},"style":{"spacing":{"margin":{"top":"0"}}},"textColor":"cyan-bluish-gray","fontSize":"small"} -->
-							<p class="has-cyan-bluish-gray-color has-text-color has-small-font-size" style="margin-top:0"></p>
-							<!-- /wp:paragraph -->
-						</div>
-						<!-- /wp:column -->
+				<!-- wp:columns -->
+				<div class="wp-block-columns">
+					<!-- wp:column -->
+					<div class="wp-block-column">
+						<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase"}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="text-transform:uppercase"><strong>Year</strong></p>
+						<!-- /wp:paragraph -->
 
-						<!-- wp:column -->
-						<div class="wp-block-column">
-							<!-- wp:post-terms {"term":"jetpack-portfolio-tag","prefix":"Tag"} /-->
-						</div>
-						<!-- /wp:column -->
+						<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"writepoetry_project_year"}}}},"style":{"spacing":{"margin":{"top":"0"}}},"textColor":"cyan-bluish-gray","fontSize":"small"} -->
+						<p class="has-cyan-bluish-gray-color has-text-color has-small-font-size" style="margin-top:0"></p>
+						<!-- /wp:paragraph -->
 
-						<!-- wp:column -->
-						<div class="wp-block-column">
-							<!-- wp:post-terms {"term":"jetpack-portfolio-type", "prefix":"Category"} /-->
-						</div>
-						<!-- /wp:column -->
+						<!-- wp:separator {"backgroundColor":"base","className":"is-style-wide"} -->
+						<hr class="wp-block-separator has-text-color has-base-color has-alpha-channel-opacity has-base-background-color has-background is-style-wide"/>
+						<!-- /wp:separator -->
 
+						<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase"}},"fontSize":"small"} -->
+						<p class="has-small-font-size" style="text-transform:uppercase"><strong>Client</strong></p>
+						<!-- /wp:paragraph -->
 
+						<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"writepoetry_project_client"}}}},"style":{"spacing":{"margin":{"top":"0"}}},"textColor":"cyan-bluish-gray","fontSize":"small"} -->
+						<p class="has-cyan-bluish-gray-color has-text-color has-small-font-size" style="margin-top:0"></p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:separator {"backgroundColor":"primary","className":"is-style-wide"} -->
+						<hr class="wp-block-separator has-text-color has-base-color has-alpha-channel-opacity has-base-background-color has-background is-style-wide"/>
+						<!-- /wp:separator -->
 					</div>
-					<!-- /wp:columns -->
+					<!-- /wp:column -->
 
-					<!-- wp:post-content /-->
-				</div>
-				<!-- /wp:column -->
+					<!-- wp:column -->
+					<div class="wp-block-column">
+						<!-- wp:post-terms {"term":"jetpack-portfolio-type", "prefix":"Category: "} /-->
 
-				<!-- wp:column -->
-				<div class="wp-block-column">
-						<!-- wp:post-featured-image {"width":"100%","height":"clamp(15vw, 30vh, 400px)","align":"wide"} /-->
+						<!-- wp:post-terms {"term":"jetpack-portfolio-tag","prefix":"Activities: "} /-->
+					</div>
+					<!-- /wp:column -->
 				</div>
-				<!-- /wp:column -->
+				<!-- /wp:columns -->
+
+
+				<!-- wp:post-content /-->
 			</div>
-			<!-- /wp:columns -->
+			<!-- /wp:group -->
+
 
 			<!-- wp:spacer {"height":"var(--wp--preset--spacing--40)"} -->
 			<div style="height:var(--wp--preset--spacing--40)" aria-hidden="true" class="wp-block-spacer"></div>

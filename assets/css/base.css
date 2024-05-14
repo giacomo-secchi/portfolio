@@ -24,3 +24,21 @@ a:where(:not(.wp-element-button))[target="_blank"]:after {
 	text-decoration: none;
 	vertical-align: text-bottom;
 }
+
+/* Media query only for screens smaller than 482px */
+@media only screen and ( max-width: 482px ) {
+	.post-type-archive-jetpack-portfolio main {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.post-type-archive-jetpack-portfolio .wp-post-image {
+	filter: blur( 0.6rem );
+	transition: filter 0.3s ease-in-out;
+}
+
+.post-type-archive-jetpack-portfolio .wp-block-cover__background:hover + .wp-post-image {
+	filter: blur( 0 );
+}
+
