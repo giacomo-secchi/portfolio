@@ -83,6 +83,16 @@
 				}
 			]
 		},
+		"custom": {
+			"textDecoration": {
+				"thickness": "0.2rem"
+			},
+			"textUnderline": {
+				"offset": "0.2rem",
+				"offset-hover": "0.4rem",
+				"offset-transition": "300ms"
+			}
+		},
 		"spacing": {
 			"blockGap": false
 		},
@@ -393,15 +403,14 @@
 			"core/site-title": {
 				"elements": {
 					"link": {
-
 						":hover": {
 							"typography": {
-								"textDecoration": "underline"
+								"textDecoration": "var(--wp--custom--text-decoration--thickness) underline solid var(--wp--preset--color--secondary)"
 							}
 						},
 						":focus": {
 							"typography": {
-								"textDecoration": "underline dashed"
+								"textDecoration": "var(--wp--custom--text-decoration--thickness) underline solid var(--wp--preset--color--secondary)"
 							}
 						},
 						":active": {
@@ -409,19 +418,17 @@
 								"text": "var(--wp--preset--color--secondary)"
 							},
 							"typography": {
-								"textDecoration": "none"
+								"textDecoration": "var(--wp--custom--text-decoration--thickness) underline solid var(--wp--preset--color--secondary)"
 							}
 						},
 						"typography": {
-							"fontSize": "var(--wp--preset--font-size--x-large)",
-							"fontWeight": "600"
+							"fontSize": "var(--wp--preset--font-size--large)",
+							"textDecoration": "var(--wp--custom--text-decoration--thickness) underline solid var(--wp--preset--color--secondary)"
 						}
 					}
 				},
-				"typography": {
-					"fontSize": "var(--wp--preset--font-size--medium)",
-					"fontWeight": "normal",
-					"lineHeight": "1.4"
+				"color": {
+					"text": "var(--wp--preset--color--primary)"
 				}
 			},
 			"core/button": {
@@ -432,6 +439,17 @@
 						}
 					}
 				}
+			},
+			"core/separator": {
+				"border": {
+					"color": "currentColor",
+					"style": "solid",
+					"width": "0 0 3px 0"
+				},
+				"color": {
+					"text": "var(--wp--preset--color--contrast)"
+				},
+				"css": " &:not(.is-style-wide):not(.is-style-dots):not(.alignwide):not(.alignfull){height: 3px}"
 			}
 		},
 		"color": {
@@ -533,7 +551,7 @@
 				},
 				":hover": {
 					"typography": {
-						"textDecoration": "underline"
+						"textDecoration": "var(--wp--custom--text-decoration--thickness) underline solid var(--wp--preset--color--secondary)"
 					}
 				},
 				":focus": {
@@ -551,7 +569,7 @@
 				},
 				"typography": {
 					"fontWeight": "600",
-					"textDecoration": " underline"
+					"textDecoration": "var(--wp--custom--text-decoration--thickness) underline solid var(--wp--preset--color--secondary)"
 				}
 			}
 		},
