@@ -1,19 +1,20 @@
-<!-- wp:group {"tagName":"main","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
-<main class="wp-block-group" style="margin-top:var(--wp--preset--spacing--40);margin-bottom:var(--wp--preset--spacing--40)">
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
 	<!-- wp:query {"query":{"pages":0,"offset":0,"postType":"jetpack-portfolio","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"perPage":10},"namespace":"jetpack/projects-list","align":"wide","layout":{"type":"default"}} -->
 	<div class="wp-block-query alignwide">
 		<!-- wp:post-template {"align":"wide"} -->
 
-			<!-- wp:group {"style":{"shadow":"var:preset|shadow|sm"},"backgroundColor":"white"} -->
-			<div class="wp-block-group has-white-background-color has-background" style="box-shadow:var(--wp--preset--shadow--sm)">
 
-				<!-- wp:cover {"useFeaturedImage":true,"dimRatio":70,"overlayColor":"contrast","isUserOverlayColor":true,"align":"center","style":{"color":[]},"layout":{"type":"constrained"}} -->
-				<div class="wp-block-cover aligncenter"><span aria-hidden="true" class="wp-block-cover__background has-contrast-background-color has-background-dim-70 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:separator {"gradient":"vertical-secondary-to-base","className":"is-style-wide"} -->
-					<hr class="wp-block-separator has-alpha-channel-opacity has-vertical-secondary-to-base-gradient-background has-background is-style-wide"/>
-					<!-- /wp:separator --><!-- wp:post-title {"style":{"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"textColor":"white","fontSize":"x-large"} /-->
-					<!-- wp:separator {"backgroundColor":"secondary","className":"is-style-wide"} -->
-					<hr class="wp-block-separator has-text-color has-secondary-color has-alpha-channel-opacity has-secondary-background-color has-background is-style-wide"/>
-					<!-- /wp:separator --></div></div>
+			<!-- wp:group {"style":{"shadow":"var:preset|shadow|sm","spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"backgroundColor":"white"} -->
+			<div class="wp-block-group has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40);box-shadow:var(--wp--preset--shadow--sm)">
+
+				<!-- wp:cover {"useFeaturedImage":true,"dimRatio":70,"overlayColor":"contrast","isUserOverlayColor":true,"style":{"color":[]},"layout":{"type":"constrained"}} -->
+				<div class="wp-block-cover"><span aria-hidden="true" class="wp-block-cover__background has-contrast-background-color has-background-dim-70 has-background-dim"></span><div class="wp-block-cover__inner-container">
+ 				<!-- wp:post-title {"textAlign":"center","style":{"elements":{"link":{"color":{"text":"var:preset|color|base"}}}},"textColor":"white","fontSize":"x-large"} /-->
+
+				<!-- wp:separator {"gradient":"vertical-secondary-to-base","className":"is-style-default"} -->
+				<hr class="wp-block-separator has-alpha-channel-opacity has-vertical-secondary-to-base-gradient-background has-background is-style-default"/>
+				<!-- /wp:separator --></div></div>
 				<!-- /wp:cover -->
 
 				<!-- wp:columns -->
@@ -60,6 +61,7 @@
 				<!-- wp:post-content /-->
 			</div>
 			<!-- /wp:group -->
+
 
 
 			<!-- wp:spacer {"height":"var(--wp--preset--spacing--40)"} -->

@@ -1,18 +1,14 @@
 a,
 a:not(.wp-element-button) {
-	text-decoration-color: var(--wp--preset--color--secondary);
-	text-decoration-thickness: 3px;
-	text-underline-offset: 0.2em;
-	transition: text-underline-offset 200ms;
+	text-underline-offset: var( --wp--custom--text-underline--offset );
+	transition: text-underline-offset var( --wp--custom--text-underline--offset-transition );
 }
 
 a:active,
 a:focus,
 a:hover,
 a:hover:not(.wp-element-button) {
-	text-decoration-color: var(--wp--preset--color--secondary);
-	text-decoration-thickness: 3px;
-	text-underline-offset: 0.4em;
+	text-underline-offset: var( --wp--custom--text-underline--offset-hover );
 }
 
 a:where(:not(.wp-element-button))[target="_blank"]:after {
@@ -30,6 +26,15 @@ a:where(:not(.wp-element-button))[target="_blank"]:after {
 	.post-type-archive-jetpack-portfolio main {
 		padding-left: 0;
 		padding-right: 0;
+	}
+
+	.wp-block-cover {
+		width: 100vw;
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
 	}
 }
 
