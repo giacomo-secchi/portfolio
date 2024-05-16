@@ -1,6 +1,7 @@
 a,
 a:not(.wp-element-button) {
-	text-decoration-thickness: var(--wp--custom--text--decoration-thickness);
+	text-decoration-color: var(--wp--preset--color--secondary) !important;
+	text-decoration-thickness: var(--wp--custom--text-decoration--thickness);
 	text-underline-offset: var( --wp--custom--text-underline--offset );
 	transition: text-underline-offset var( --wp--custom--text-underline--offset-transition );
 }
@@ -9,6 +10,8 @@ a:active,
 a:focus,
 a:hover,
 a:hover:not(.wp-element-button) {
+	text-decoration-color: var(--wp--preset--color--secondary);
+	text-decoration-thickness: var(--wp--custom--text-decoration--thickness);
 	text-underline-offset: var( --wp--custom--text-underline--offset-hover );
 }
 
