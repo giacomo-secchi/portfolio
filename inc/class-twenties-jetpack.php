@@ -68,7 +68,7 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 			$query['meta_key'] = 'writepoetry_project_year';
 
 			// number of post to show per page. Use 'posts_per_page'=>-1 to show all posts
-			// $query['posts_per_page'] = -1;
+			$query['posts_per_page'] = -1;
 
 			// also likely want to set order by this key in desc so more recent project are listed first.
 			$query['orderby'] = 'meta_value_num';
