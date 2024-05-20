@@ -27,15 +27,18 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 		 * @since 1.0
 		 */
 		public function __construct() {
-			add_filter( 'pre_render_block',  array( $this, 'projects_pre_render_block' ), 10, 2 );
-			add_filter( 'rest_jetpack-portfolio_query', array( $this, 'rest_project_date' ), 10, 2 );
+
 			add_filter( 'wpseo_exclude_from_sitemap_by_post_ids',  array( $this, 'exclude_posts_from_xml_sitemaps' ), 10, 2 );
 			// add_action( 'init', array( $this, 'register_block_bindings' ) );
 
 			add_filter( 'wp', function () {
 				add_action( 'template_redirect', array( $this, 'redirect_single_posts_to_not_found' ), 10, 2 );
+			}, 10, 2 );
 
-				add_filter( 'is_post_type_viewable', array( $this, 'change_post_type_visibility' ), 10, 2 );
+			add_filter( 'theme_init', function () {
+				add_filter( 'pre_render_block',  array( $this, 'projects_pre_render_block' ), 10, 2 );
+				add_filter( 'rest_jetpack-portfolio_query', array( $this, 'rest_project_date' ), 10, 2 );
+
 			}, 10, 2 );
 		}
 
@@ -68,9 +71,6 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 			// The meta key would be the writepoetry_project_year field assigned to the jetpack-portfolio CPT
 			$query['meta_key'] = 'writepoetry_project_year';
 
-			// number of post to show per page. Use 'posts_per_page'=>-1 to show all posts
-			$query['posts_per_page'] = -1;
-
 			// also likely want to set order by this key in desc so more recent project are listed first.
 			$query['orderby'] = 'meta_value';
 			$query['order'] = 'desc';
@@ -94,22 +94,6 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 			}
 
 		  	return $pre_render;
-		}
-
-
-		/**
-		 * Change post type visibility.
-		 *
-		 * @param bool $is_viewable Whether the post type is viewable.
-		 * @param object $post_type The post type object.
-		 * @return bool
-		 */
-		public function change_post_type_visibility( $is_viewable, $post_type ) {
-			if ( false == $is_viewable || self::CUSTOM_POST_TYPE === $post_type->name ) {
-				return false;
-			}
-
-			return $is_viewable;
 		}
 
 		/**
