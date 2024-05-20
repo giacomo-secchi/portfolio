@@ -37,7 +37,7 @@ if ( ! class_exists( 'Twenties_Child_Translatepress' ) ) :
 		public function custom_language_switcher() {
 			$array = trp_custom_language_switcher();
 			// IMPORTANT! You need to have data-no-translation on the wrapper with the links or TranslatePress will automatically translate them in a secondary language. -->
-			$html = '<div data-no-translation style="color: var(--wp--preset--color--cyan-bluish-gray);">';
+			$html = '<span data-no-translation style="color: var(--wp--preset--color--cyan-bluish-gray);">';
 
 			// Check whether TranslatePress can run on the current path or not. If the path is excluded from translation, trp_allow_tp_to_run will be false -->
 			if ( apply_filters( 'trp_allow_tp_to_run', true ) ) {
@@ -52,7 +52,7 @@ if ( ! class_exists( 'Twenties_Child_Translatepress' ) ) :
 				}
 			}
 
-			$html .= '</div>';
+			$html .= '</span>';
 
 			return $html;
 		}
