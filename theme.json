@@ -85,7 +85,7 @@
 		},
 		"custom": {
 			"textDecoration": {
-				"thickness": "0.2rem"
+				"thickness": "0.1rem"
 			},
 			"textUnderline": {
 				"offset": "0.2rem",
