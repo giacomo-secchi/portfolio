@@ -25,16 +25,8 @@ a:where(:not(.wp-element-button))[target="_blank"]:after {
 
 /* Media query only for screens smaller than 482px */
 @media only screen and ( max-width: 482px ) {
-	.post-type-archive-jetpack-portfolio main {
-		padding-left: 0;
-		padding-right: 0;
-	}
-
-	.post-type-archive-jetpack-portfolio  header .is-content-justification-space-between {
-		justify-content: space-around;
-	}
-
-	.wp-block-cover {
+	.jetpack-portfolio > .wp-block-group,
+	.jetpack-portfolio .wp-block-cover {
 		width: 100vw;
 		position: relative;
 		left: 50%;
@@ -42,14 +34,20 @@ a:where(:not(.wp-element-button))[target="_blank"]:after {
 		margin-left: -50vw;
 		margin-right: -50vw;
 	}
+
+	.tax-jetpack-portfolio-tag header .is-content-justification-space-between,
+	.tax-jetpack-portfolio-type header .is-content-justification-space-between,
+	.post-type-archive-jetpack-portfolio header .is-content-justification-space-between {
+		justify-content: space-around;
+	}
 }
 
-.post-type-archive-jetpack-portfolio .wp-post-image {
+.jetpack-portfolio .wp-post-image {
 	filter: blur( 0.6rem );
 	transition: filter 0.3s ease-in-out;
 }
 
-.post-type-archive-jetpack-portfolio .wp-block-cover__background:hover + .wp-post-image {
+.jetpack-portfolio .wp-block-cover__background:hover + .wp-post-image {
 	filter: blur( 0 );
 }
 
