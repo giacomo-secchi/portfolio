@@ -84,6 +84,15 @@
 			]
 		},
 		"custom": {
+			"paragraph": {
+				"dropcap": {
+					"margin": ".1em .1em 0 0",
+					"typography": {
+						"fontSize": "4rem",
+						"fontWeight": "500"
+					}
+				}
+			},
 			"textDecoration": {
 				"thickness": "0.1rem"
 			},
@@ -97,6 +106,7 @@
 			"blockGap": false
 		},
 		"typography": {
+			"dropCap": true,
 			"fontFamilies": [
 				{
 					"fontFace": [
