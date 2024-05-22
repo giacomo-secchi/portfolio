@@ -27,6 +27,7 @@ a:where(:not(.wp-element-button))[target="_blank"]:after {
 p.has-drop-cap:not(:focus)::first-letter {
 	font-size: var(--wp--custom--paragraph--dropcap--typography--font-size);
 	font-weight: var(--wp--custom--paragraph--dropcap--typography--font-weight);
+	font-family: var(--wp--custom--paragraph--dropcap--typography--font-family);
 	margin: var(--wp--custom--paragraph--dropcap--margin);
 }
 

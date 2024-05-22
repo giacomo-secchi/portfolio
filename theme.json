@@ -89,7 +89,8 @@
 					"margin": ".1em .1em 0 0",
 					"typography": {
 						"fontSize": "4rem",
-						"fontWeight": "500"
+						"fontWeight": "500",
+						"fontFamily": "var(--wp--preset--font-family--noto-serif)"
 					}
 				}
 			},
