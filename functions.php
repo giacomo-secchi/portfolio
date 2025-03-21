@@ -1,40 +1,88 @@
 <?php
-/**
- * Twenties Child Theme
- *
- * @package Twenty_Twenty_Child
- */
 
-/**
- * Get theme version.
- */
-$theme_version  = wp_get_theme( get_stylesheet() )->get( 'Version' );
-$version_string = is_string( $theme_version ) ? $theme_version : false;
+
+// Custom Language Switcher output
+add_action( 'custom_language_span_output', function ( $args, $short_language_name, $language_name, $flag_link ) {
+	return '<span>' . strtoupper( $short_language_name ) . '</span>';
+ }, 10, 4 );
 
 
 
-$twenties = (object) array(
-	'version'    => $theme_version,
+add_filter( 'blankspace_enable_dashicons', '__return_true' );
 
-	/**
-	 * Initialize all the things.
-	 */
-	'main'       => require 'inc/class-twenties.php',
-);
 
-/**
- * Initialize Jetpack compatibility.
- */
-if ( class_exists( 'Jetpack' ) ) {
-	$twenties->jetpack = require 'inc/class-twenties-jetpack.php';
+
+
+function render_menu( $block_content, $block ) {
+    // If there are no inner blocks, return the original content
+    if ( ! isset( $block['blockName'] ) || empty( $block['blockName'] ) ) {
+        return $block_content;
+    }
+
+	// Check if the inner block is a 'core/navigation' block
+	if ( 'core/navigation' === $block['blockName'] ) {
+
+		// Use WP_HTML_Tag_Processor to process the inner block's content
+		$nav = new WP_HTML_Tag_Processor( $block_content );
+
+
+        // Find all <li> tags and apply the modifications
+        while ( $nav->next_tag( 'li' ) ) {
+
+            // Add the attribute for the dynamic class to the <li>
+            $nav->set_attribute( 'data-wp-class--current-menu-item', 'state.isCurrentPage' );
+
+            // Move to the <a> tag inside the <li>
+            if ( $nav->next_tag('a') ) {
+
+                // Check if the link does not have target="_blank"
+                if ( '_blank' !== $nav->get_attribute('target') ) {
+                    // Add the custom attribute for click handling
+                    $nav->set_attribute( 'data-wp-on--click', 'actions.navigate' );
+                }
+            }
+        }
+		// Return the updated HTML content
+		return $nav->get_updated_html();
+    }
 }
 
-/**
- * Initialize TranslatePress - Multilingual compatibility.
- */
-if (class_exists( 'TRP_Translate_Press' ) ) {
-	$twenties->translatepress = require 'inc/class-twenties-translatepress.php';
+add_filter( 'render_block_core/navigation', 'render_menu', 10, 2 );
+
+function render_menu_item( $block_content, $block ) {
+    // If there are no inner blocks, return the original content
+    if ( ! isset( $block['blockName'] ) || empty( $block['blockName'] ) ) {
+        return $block_content;
+    }
+
+	// Check if the inner block is a 'core/navigation' block
+	if ( 'core/navigation-link' === $block['blockName'] ) {
+
+		// Use WP_HTML_Tag_Processor to process the inner block's content
+		$nav = new WP_HTML_Tag_Processor( $block_content );
+
+
+        // Find all <li> tags and apply the modifications
+        while ( $nav->next_tag( 'li' ) ) {
+
+            // Add the attribute for the dynamic class to the <li>
+            // $nav->set_attribute( 'data-wp-class--current-menu-item', 'state.isCurrentPage' );
+			// TODO: trovare l'ID di ogni pagina in base all'url del link (che è l'unico parametro univoco)
+            // $nav->set_attribute( 'data-wp-context--page-id', '1' );
+
+            // Move to the <a> tag inside the <li>
+            if ( $nav->next_tag('a') ) {
+
+                // Check if the link does not have target="_blank"
+                if ( '_blank' !== $nav->get_attribute('target') ) {
+                    // Add the custom attribute for click handling
+                    $nav->set_attribute( 'data-wp-on--click', 'actions.navigate' );
+                }
+            }
+        }
+		// Return the updated HTML content
+		return $nav->get_updated_html();
+    }
 }
 
-
-// require 'inc/class-twenties-ajax.php';
+add_filter( 'render_block_core/navigation-link', 'render_menu_item', 10, 2 );

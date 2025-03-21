@@ -14,13 +14,23 @@ a:hover:not(.wp-element-button) {
 }
 
 a:where(:not(.wp-element-button))[target="_blank"]:after {
-	font: 23px/23px dashicons;
+	font: var( --wp--preset--font-size--medium )/var( --wp--preset--font-size--medium ) dashicons;
 	content: "\f504";
 	position: relative;
 	padding-left: 3px;
 	display: inline-block;
 	text-decoration: none;
 	vertical-align: text-bottom;
+}
+
+.main-navigation {
+	white-space: nowrap;
+}
+
+.main-navigation a:where(:not(.wp-element-button))[target="_blank"]:after {
+	font: var( --wp--preset--font-size--xx-large )/var( --wp--preset--font-size--xx-large ) dashicons;
+	color: var( --wp--preset--color--base );
+	position: absolute;
 }
 
 /* Needed until https://github.com/WordPress/gutenberg/issues/36122 is fixed */
@@ -31,6 +41,9 @@ p.has-drop-cap:not(:focus)::first-letter {
 	margin: var(--wp--custom--paragraph--dropcap--margin);
 }
 
+.main-container .wp-block-columns  {
+		flex-direction: row-reverse;
+	  }
 
 
 /* Media query only for screens smaller than 482px */

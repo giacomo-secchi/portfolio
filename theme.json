@@ -1,6 +1,6 @@
 {
-	"version": 2,
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
 	"settings": {
 		"color": {
 			"gradients": [
@@ -90,7 +90,7 @@
 					"typography": {
 						"fontSize": "4rem",
 						"fontWeight": "500",
-						"fontFamily": "var(--wp--preset--font-family--noto-serif)"
+						"fontFamily": "var:preset|font-family|noto-serif"
 					}
 				}
 			},
@@ -103,6 +103,9 @@
 				"offset-transition": "250ms"
 			}
 		},
+		"layout": {
+			"wideSize": "1200px"
+		},
 		"spacing": {
 			"blockGap": false
 		},
@@ -110,258 +113,101 @@
 			"dropCap": true,
 			"fontFamilies": [
 				{
+					"name": "Open Sans",
+					"slug": "open-sans",
+					"fontFamily": "\"Open Sans\", sans-serif",
 					"fontFace": [
 						{
-							"fontFamily": "Open Sans",
-							"fontStyle": "normal",
-							"fontWeight": "300",
 							"src": [
-								"file:./assets/fonts/open-sans_normal_300.ttf"
-							]
-						},
-						{
-							"fontFamily": "Open Sans",
-							"fontStyle": "normal",
-							"fontWeight": "400",
-							"src": [
-								"file:./assets/fonts/open-sans_normal_400.ttf"
-							]
-						},
-						{
-							"fontFamily": "Open Sans",
-							"fontStyle": "normal",
-							"fontWeight": "500",
-							"src": [
-								"file:./assets/fonts/open-sans_normal_500.ttf"
-							]
-						},
-						{
-							"fontFamily": "Open Sans",
-							"fontStyle": "normal",
-							"fontWeight": "600",
-							"src": [
-								"file:./assets/fonts/open-sans_normal_600.ttf"
-							]
-						},
-						{
-							"fontFamily": "Open Sans",
-							"fontStyle": "normal",
-							"fontWeight": "700",
-							"src": [
-								"file:./assets/fonts/open-sans_normal_700.ttf"
-							]
-						},
-						{
-							"fontFamily": "Open Sans",
-							"fontStyle": "normal",
-							"fontWeight": "800",
-							"src": [
-								"file:./assets/fonts/open-sans_normal_800.ttf"
-							]
-						},
-						{
-							"fontFamily": "Open Sans",
+								"file:./assets/fonts/open-sans/OpenSans-Italic-VariableFont_wdth,wght.ttf"
+							],
+							"fontWeight": "300 800",
 							"fontStyle": "italic",
-							"fontWeight": "300",
-							"src": [
-								"file:./assets/fonts/open-sans_italic_300.ttf"
-							]
+							"fontFamily": "\"Open Sans\""
 						},
 						{
-							"fontFamily": "Open Sans",
-							"fontStyle": "italic",
-							"fontWeight": "400",
 							"src": [
-								"file:./assets/fonts/open-sans_italic_400.ttf"
-							]
-						},
-						{
-							"fontFamily": "Open Sans",
-							"fontStyle": "italic",
-							"fontWeight": "500",
-							"src": [
-								"file:./assets/fonts/open-sans_italic_500.ttf"
-							]
-						},
-						{
-							"fontFamily": "Open Sans",
-							"fontStyle": "italic",
-							"fontWeight": "600",
-							"src": [
-								"file:./assets/fonts/open-sans_italic_600.ttf"
-							]
-						},
-						{
-							"fontFamily": "Open Sans",
-							"fontStyle": "italic",
-							"fontWeight": "700",
-							"src": [
-								"file:./assets/fonts/open-sans_italic_700.ttf"
-							]
-						},
-						{
-							"fontFamily": "Open Sans",
-							"fontStyle": "italic",
-							"fontWeight": "800",
-							"src": [
-								"file:./assets/fonts/open-sans_italic_800.ttf"
-							]
+								"file:./assets/fonts/open-sans/OpenSans-VariableFont_wdth,wght.ttf"
+							],
+							"fontWeight": "300 800",
+							"fontStyle": "normal",
+							"fontFamily": "\"Open Sans\""
+
 						}
-					],
-					"fontFamily": "Open Sans",
-					"name": "Open Sans",
-					"slug": "open-sans"
+					]
 				},
 				{
+					"name": "Noto Serif",
+					"slug": "noto-serif",
+					"fontFamily": "\"Noto Serif\", serif",
 					"fontFace": [
 						{
-							"fontFamily": "Noto Serif",
+							"src": [
+								"file:./assets/fonts/noto-serif/NotoSerif-VariableFont_wdth,wght.ttf"
+							],
+							"fontWeight": "100 900",
 							"fontStyle": "normal",
-							"fontWeight": "100",
-							"src": [
-								"file:./assets/fonts/noto-serif_normal_100.ttf"
-							]
+							"fontFamily": "\"Noto Serif\""
 						},
 						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "normal",
-							"fontWeight": "200",
 							"src": [
-								"file:./assets/fonts/noto-serif_normal_200.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "normal",
-							"fontWeight": "300",
-							"src": [
-								"file:./assets/fonts/noto-serif_normal_300.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "normal",
-							"fontWeight": "400",
-							"src": [
-								"file:./assets/fonts/noto-serif_normal_400.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "normal",
-							"fontWeight": "500",
-							"src": [
-								"file:./assets/fonts/noto-serif_normal_500.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "normal",
-							"fontWeight": "600",
-							"src": [
-								"file:./assets/fonts/noto-serif_normal_600.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "normal",
-							"fontWeight": "700",
-							"src": [
-								"file:./assets/fonts/noto-serif_normal_700.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "normal",
-							"fontWeight": "800",
-							"src": [
-								"file:./assets/fonts/noto-serif_normal_800.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "normal",
-							"fontWeight": "900",
-							"src": [
-								"file:./assets/fonts/noto-serif_normal_900.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
+								"file:./assets/fonts/noto-serif/NotoSerif-Italic-VariableFont_wdth,wght.ttf"
+							],
+							"fontWeight": "100 900",
 							"fontStyle": "italic",
-							"fontWeight": "100",
-							"src": [
-								"file:./assets/fonts/noto-serif_italic_100.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "italic",
-							"fontWeight": "200",
-							"src": [
-								"file:./assets/fonts/noto-serif_italic_200.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "italic",
-							"fontWeight": "300",
-							"src": [
-								"file:./assets/fonts/noto-serif_italic_300.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "italic",
-							"fontWeight": "400",
-							"src": [
-								"file:./assets/fonts/noto-serif_italic_400.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "italic",
-							"fontWeight": "500",
-							"src": [
-								"file:./assets/fonts/noto-serif_italic_500.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "italic",
-							"fontWeight": "600",
-							"src": [
-								"file:./assets/fonts/noto-serif_italic_600.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "italic",
-							"fontWeight": "700",
-							"src": [
-								"file:./assets/fonts/noto-serif_italic_700.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "italic",
-							"fontWeight": "800",
-							"src": [
-								"file:./assets/fonts/noto-serif_italic_800.ttf"
-							]
-						},
-						{
-							"fontFamily": "Noto Serif",
-							"fontStyle": "italic",
-							"fontWeight": "900",
-							"src": [
-								"file:./assets/fonts/noto-serif_italic_900.ttf"
-							]
+							"fontFamily": "\"Noto Serif\""
 						}
-					],
-					"fontFamily": "Noto Serif",
-					"name": "Noto Serif",
-					"slug": "noto-serif"
+					]
+				}
+			],
+			"fontSizes": [
+				{
+					"fluid": {
+						"min": "0.875rem",
+						"max": "1rem"
+					},
+					"size": "1rem",
+					"slug": "small"
+				},
+				{
+					"fluid": {
+						"min": "1rem",
+						"max": "1.25rem"
+					},
+					"size": "1.125rem",
+					"slug": "medium"
+				},
+				{
+					"fluid": {
+						"min": "1.5rem",
+						"max": "2rem"
+					},
+					"size": "1.75rem",
+					"slug": "large"
+				},
+				{
+					"fluid": {
+						"min": "2rem",
+						"max": "2.5rem"
+					},
+					"size": "2.25rem",
+					"slug": "x-large"
+				},
+				{
+					"fluid": {
+						"min": "4rem",
+						"max": "5rem"
+					},
+					"size": "4.5rem",
+					"slug": "xx-large"
+				},
+				{
+					"fluid": {
+						"min": "5rem",
+						"max": "6rem"
+					},
+					"size": "5.5rem",
+					"slug": "Gigantic"
 				}
 			]
 		},
@@ -379,21 +225,14 @@
 		"blocks": {
 			"core/query-title": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--open-sans)"
+					"fontFamily": "var:preset|font-family|open-sans"
 				}
 			},
 			"core/navigation": {
-				"elements": {
-					"link": {
-						"typography": {
-							"fontSize": "var(--wp--preset--font-size--x-large)",
-							"lineHeight": "1.15"
-						}
-					}
-				},
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--noto-serif)",
-					"fontWeight": "500"
+					"fontFamily": "var:preset|font-family|noto-serif",
+					"fontSize": "var:preset|font-size|gigantic",
+					"lineHeight": "0.75"
 				}
 			},
 			"core/post-content": {
@@ -462,7 +301,7 @@
 			}
 		},
 		"color": {
-			"gradient": "var(--wp--preset--gradient--diagonal-white-to-base)",
+			"background": "var(--wp--preset--color--white)",
 			"text": "var(--wp--preset--color--contrast)"
 		},
 		"elements": {
@@ -549,7 +388,7 @@
 					"text": "var(--wp--preset--color--primary)"
 				},
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--noto-serif)",
+					"fontFamily": "var:preset|font-family|noto-serif",
 					"fontWeight": "600",
 					"lineHeight": "1.4"
 				}
@@ -583,8 +422,10 @@
 			}
 		},
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--open-sans)",
-			"lineHeight": "1.8"
+			"fontFamily": "var:preset|font-family|open-sans",
+			"fontSize": "var:preset|font-size|small",
+			"fontWeight": "400",
+			"lineHeight": "1.5"
 		}
 	}
 }
