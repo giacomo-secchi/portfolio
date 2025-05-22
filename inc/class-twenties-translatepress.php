@@ -28,7 +28,7 @@ if ( ! class_exists( 'Twenties_Child_Translatepress' ) ) :
 
 
 		public function register_block_bindings() {
-			register_block_bindings_source( 'twenties/translatepress-language-switcher', array(
+			register_block_bindings_source( 'blank/translatepress-language-switcher', array(
 				'label'              => __( 'Translatepress Language Switcher', 'twenties' ),
 				'get_value_callback' => array( $this, 'custom_language_switcher' )
 			) );
