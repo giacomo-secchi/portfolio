@@ -10,6 +10,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+
+
+
+
 if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 
 	/**
@@ -27,17 +31,60 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 		 * @since 1.0
 		 */
 		public function __construct() {
-			add_filter( 'wpseo_exclude_from_sitemap_by_post_ids',  array( $this, 'exclude_posts_from_xml_sitemaps' ), 10, 2 );
-			// add_action( 'init', array( $this, 'register_block_bindings' ) );
+			add_filter( 'wp_body_open',  array( $this, 'popup_template' ), 10, 2 );
+
+			add_filter( 'render_block_core/read-more', array( $this, 'modify_readmore_blocks' ), 10, 2 );
+
+			add_action( 'wp_ajax_get_project',  array( $this, 'get_project_data' ), 10, 2 );
+			add_action( 'wp_ajax_nopriv_get_project',  array( $this, 'get_project_data' ), 10, 2 );
+
+			add_filter( 'render_block_core/post-terms', array( $this, 'remove_taxonomy_links' ), 10, 2 );
 
 			add_filter( 'init', function () {
-				add_action( 'template_redirect', array( $this, 'redirect_single_posts_to_not_found' ), 10, 2 );
-
-				add_filter( 'pre_render_block',  array( $this, 'projects_pre_render_block' ), 10, 2 );
+				add_filter( 'pre_render_block',  array( $this, 'load_scripts' ), 10, 2 );
 				add_filter( 'rest_jetpack-portfolio_query', array( $this, 'rest_project_date' ), 10, 2 );
 			}, 10, 2 );
 		}
 
+
+		public function load_scripts( $pre_render, $parsed_block ) {
+			wp_enqueue_script(
+				'main',
+				get_theme_file_uri( '/assets/js/main.js' ),
+				array( 'wp-api-fetch' ),
+				'1.0.0',
+				true
+			);
+		}
+
+		function modify_readmore_blocks( $block_content, $block ) {
+			if ( isset( $block['blockName'] ) && 'core/read-more' === $block['blockName'] ) {
+				global $post;
+				
+				if ( $post && isset( $post->ID ) ) {
+					// Add the custom class to the block content using the HTML API.
+					$processor = new WP_HTML_Tag_Processor( $block_content );
+					
+					if ( $processor->next_tag( 'a' ) ) {
+						$processor->set_attribute( 'data-project-id', $post->ID );
+						
+						return $processor->get_updated_html();
+					}
+				}
+			}	
+			
+			return $block_content;
+		}
+
+
+		public function remove_taxonomy_links($block_content, $block) {
+			if (isset($block['attrs']['term']) ) {
+				// Remove all tag links from the block content.
+				$block_content = preg_replace('/<a\b[^>]*>(.*?)<\/a>/i', '$1', $block_content);
+			}
+			
+			return $block_content;
+		}
 
 
 		public function rest_project_date( $args, $request ) {
@@ -97,30 +144,7 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 
 		  	return $pre_render;
 		}
-
-		/**
-		 * Redirect single posts to 404.
-		 */
-		public function redirect_single_posts_to_not_found() {
-			global $wp_query;
-
-			if ( ! is_singular( self::CUSTOM_POST_TYPE ) ) {
-				return;
-			}
-
-			$wp_query->set_404();
-			status_header( 404 );
-			get_template_part( '404' );
-		}
-
-		public function register_block_bindings() {
-			register_block_bindings_source( 'twenties/jetpack-projects-infos', array(
-				'label'              => __( 'Project Informations', 'twenties' ),
-				'get_value_callback' => array( $this, 'get_project_types' ),
-				'uses_context'       => [ 'postId', 'postType' ]
-			) );
-		}
-
+ 
 		public function get_project_types( $source_args, $block_instance, $attribute_name ) {
 			// If no key or user ID argument is set, bail early.
 			if ( ! isset( $source_args['key'] ) ) {
@@ -156,21 +180,33 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 		}
 
 		/**
-		 * Excludes posts from XML sitemaps.
+		 * Add a custom template to the footer.
 		 *
-		 * @return array The IDs of posts to exclude.
+		 * @since 1.0
 		 */
-		public function exclude_posts_from_xml_sitemaps() {
-			$args = array(
-				'post_type'      => self::CUSTOM_POST_TYPE,
-				'posts_per_page' => -1,
-				'fields'         => 'ids', // Only get post IDs
-			);
+		public function popup_template() {
+			echo '
+                <div class="popup d-none">
+                   	<button type="button" class="popup-close" data-dismiss="modal" aria-label="' . esc_html__( 'Close', 'twenties' ) . '">
+						<span aria-hidden="true">×</span>
+					</button>		
+                </div>';
+		}
 
-			$post_ids = get_posts( $args );
+		function get_project_data() {
+			check_ajax_referer( 'popup_nonce', 'nonce' );
+			
+			$project_id = intval( $_POST['project_id'] );
+			$project = get_post($project_id);
 
-			// $post_ids now contains an array of post IDs
-			return $post_ids;
+			if (!$project) {
+				wp_send_json_error(['message' => 'Project not found'], 404);
+			}
+
+			wp_send_json_success([
+				'title'   => get_the_title($project),
+				'content' => apply_filters('the_content', $project->post_content)
+			]);
 		}
 	}
 endif;
