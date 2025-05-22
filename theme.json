@@ -431,7 +431,8 @@
 						},
 						"typography": {
 							"fontSize": "clamp(0.75rem, 6vw, 1.875rem)",
-							"textDecoration": "underline"
+							"fontWeight": "300",
+							"textDecoration": "none"
 						},
 						"color": {
 							"text": "var(--wp--preset--color--primary)"
@@ -450,14 +451,7 @@
 				}
 			},
 			"core/separator": {
-				"border": {
-					"color": "currentColor",
-					"style": "solid",
-					"width": "0 0 3px 0"
-				},
-				"color": {
-					"text": "var(--wp--preset--color--contrast)"
-				},
+			
 				"css": " &:not(.is-style-wide):not(.is-style-dots):not(.alignwide):not(.alignfull){height: 3px}"
 			}
 		},
