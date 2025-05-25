@@ -95,7 +95,7 @@
 				}
 			},
 			"textDecoration": {
-				"thickness": "0.1rem"
+				"thickness": "1px"
 			},
 			"textUnderline": {
 				"offset": "0.2rem",

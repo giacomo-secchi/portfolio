@@ -1,17 +1,17 @@
-a,
+/* a,
 a:not(.wp-element-button) {
 	text-decoration-color: var( --wp--preset--color--secondary ) !important;
 	text-decoration-thickness: var( --wp--custom--text-decoration--thickness ) !important;
 	text-underline-offset: var( --wp--custom--text-underline--offset );
 	transition: text-underline-offset var( --wp--custom--text-underline--offset-transition );
-}
-
+} */
+/* 
 a:active,
 a:focus,
 a:hover,
 a:hover:not(.wp-element-button) {
 	text-underline-offset: var( --wp--custom--text-underline--offset-hover );
-}
+} */
 
 a:where(:not(.wp-element-button))[target="_blank"]:after {
 	font: 23px/23px dashicons;
@@ -52,46 +52,56 @@ p.has-drop-cap:not(:focus)::first-letter {
 	}
 }
 
-/* .jetpack-portfolio .wp-post-image {
-	filter: blur( 0.6rem );
-	transition: filter 0.3s ease-in-out;
-}
-
-.jetpack-portfolio .wp-block-cover__background:hover + .wp-post-image {
-	filter: blur( 0 );
-} */
-
-
 .post-type-archive-jetpack-portfolio .wp-block-post-template { 
 	gap: 0 !important;
 }
 
-.jetpack-portfolio:nth-child(odd) {
-	border-right: 1px solid var(--wp--preset--color--base);
+@media screen and ( min-width: 601px ) {
+	.jetpack-portfolio:nth-child(odd) {
+		border-right: 1px solid var(--wp--preset--color--base);
+		padding-right: var(--wp--preset--spacing--70);
+	}
+
+	.jetpack-portfolio:nth-child(even) {
+		padding-left: var(--wp--preset--spacing--70);
+	}
+}
+
+.jetpack-portfolio {
+	border-top: 1px solid var(--wp--preset--color--base);
 }
 
 .post-type-archive-jetpack-portfolio .wp-block-categories-list {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-	gap: var(--wp--preset--spacing--40);
+	gap: var(--wp--preset--spacing--50);
 	padding: 0;
 }
 
 .post-type-archive-jetpack-portfolio .wp-block-categories-list a {
-    padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
-    background: var(--wp--preset--color--base);
-    color: var(--wp--preset--color--contrast);
-    border-radius: 4px;
+    color: var(--wp--preset--color--primary);
     text-decoration: none;
+	font-weight: 300;
     transition: all 0.3s ease;
+}
+
+.taxonomy-jetpack-portfolio-type a {
+	font-weight: 300;
+	text-decoration: none;
 }
 
 .post-type-archive-jetpack-portfolio .wp-block-categories-list a:hover,
 .post-type-archive-jetpack-portfolio .wp-block-categories-list a.active {
-    background: var(--wp--preset--color--primary);
-    color: var(--wp--preset--color--base);
+    /* color: var(--wp--preset--color--base); */
+	text-decoration: underline;
+	text-decoration-color: var( --wp--preset--color--primary ) !important;
+	text-decoration-thickness: var( --wp--custom--text-decoration--thickness ) !important;
+	text-underline-offset: var( --wp--custom--text-underline--offset );
+	transition: text-underline-offset var( --wp--custom--text-underline--offset-transition );
+
 }
+
 
 
 .post-type-archive-jetpack-portfolio .post-type-archive-jetpack-portfolio .wp-block-post {
@@ -143,7 +153,6 @@ p.has-drop-cap:not(:focus)::first-letter {
 	left: 50%;
 	transform: translateX(-50%);
 	overflow-y: scroll;
-	
 }
 
 .popup-close {
@@ -154,7 +163,6 @@ p.has-drop-cap:not(:focus)::first-letter {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
- 
 }
 
 
