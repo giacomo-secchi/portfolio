@@ -157,12 +157,14 @@ p.has-drop-cap:not(:focus)::first-letter {
 
 .popup-close {
     position: absolute;
-    top: var(--wp--preset--spacing--10);
-    right: var(--wp--preset--spacing--10);
+    top: 0;
+    right: var(--wp--preset--spacing--40);
     background: transparent;
     border: none;
-    font-size: 1.5rem;
+    font-size: var(--wp--preset--font-size--xx-large);
     cursor: pointer;
+    font-family: inherit;
+	font-weight: 300;
 }
 
 

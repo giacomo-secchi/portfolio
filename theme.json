@@ -571,7 +571,7 @@
 					}
 				},
 				"typography": {
-					"fontWeight": "600",
+					"fontWeight": "300",
 					"textDecoration": "underline"
 				}
 			}
