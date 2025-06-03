@@ -146,7 +146,7 @@ p.has-drop-cap:not(:focus)::first-letter {
 .popup {
     background: var(--wp--preset--color--base);
     max-width: 860px;
-    padding: 2rem;
+    padding: var(--wp--preset--spacing--60);
     position: fixed;
 	z-index: 99999999;
 	width: 100%;
