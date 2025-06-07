@@ -1,7 +1,7 @@
 ( () => {
     'use strict'
  
-    const filterButtons = document.querySelectorAll('.wp-block-categories-list a');
+    const filterButtons = document.querySelectorAll('.wp-block-categories a');
     const portfolioItems = document.querySelectorAll('.wp-block-post');
     let currentActiveFilter = null;
 
@@ -14,9 +14,7 @@
             // Se clicco sullo stesso filtro già attivo
             if ( currentActiveFilter === category ) {
                 // Resetta mostrando tutto
-                portfolioItems.forEach( item => {
-                    item.classList.remove( 'd-none' );
-                } );
+                portfolioItems.forEach( item => item.classList.remove( 'd-none' ) );
 
                 this.classList.remove('active');
                 currentActiveFilter = null;

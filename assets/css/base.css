@@ -38,36 +38,18 @@ p.has-drop-cap:not(:focus)::first-letter {
 
 
 
-/* Media query only for screens smaller than 482px */
-@media only screen and ( max-width: 482px ) {
-
-	.tax-jetpack-portfolio-tag header .is-content-justification-space-between,
-	.tax-jetpack-portfolio-type header .is-content-justification-space-between,
-	.post-type-archive-jetpack-portfolio header .is-content-justification-space-between {
-		/* justify-content: space-around; */
-	}
-}
-
 .post-type-archive-jetpack-portfolio .wp-block-post-template { 
-	gap: 0 !important;
+	background: transparent;
+	margin: 0 calc(-1 * var(--wp--preset--spacing--70));
+	max-width: unset;
 }
-
-@media screen and ( min-width: 601px ) {
-	.jetpack-portfolio:nth-child(odd) {
-		border-right: 1px solid var(--light-gray);
-		padding-right: var(--wp--preset--spacing--70);
-	}
-
-	.jetpack-portfolio:nth-child(even) {
-		padding-left: var(--wp--preset--spacing--70);
-	}
-}
-
+ 
 .jetpack-portfolio {
-	border-bottom: 1px solid var(--light-gray);
+	background: var(--wp--preset--color--white);
+	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--70);
 }
 
-.post-type-archive-jetpack-portfolio .wp-block-categories-list {
+.wp-block-categories {
     display: flex;
     list-style: none;
 	gap: var(--wp--preset--spacing--60);
@@ -75,25 +57,24 @@ p.has-drop-cap:not(:focus)::first-letter {
 	padding-bottom: var(--wp--preset--spacing--30);
 	overflow-x: auto;
 }
- 
 
-.post-type-archive-jetpack-portfolio .wp-block-categories-list::-webkit-scrollbar {
-  height: 1px;
+.wp-block-categories::-webkit-scrollbar {
+  height: var(--wp--preset--spacing--10);
 }
 
-.post-type-archive-jetpack-portfolio .wp-block-categories-list::-webkit-scrollbar-track {
+.wp-block-categories::-webkit-scrollbar-track {
   background: var(--light-gray); 
 }
 
-.post-type-archive-jetpack-portfolio .wp-block-categories-list::-webkit-scrollbar-thumb {
+.wp-block-categories::-webkit-scrollbar-thumb {
   background: var(--dark-gray);
 }
 
-.post-type-archive-jetpack-portfolio .wp-block-categories-list::-webkit-scrollbar-thumb:hover {
+.wp-block-categories::-webkit-scrollbar-thumb:hover {
     background: var(--wp--preset--color--contrast);
 }
 
-.post-type-archive-jetpack-portfolio .wp-block-categories-list a {
+.wp-block-categories a {
     color: var(--wp--preset--color--primary);
 	text-wrap: nowrap;
     text-decoration: none;
@@ -105,20 +86,14 @@ p.has-drop-cap:not(:focus)::first-letter {
 }
 
 .taxonomy-jetpack-portfolio-type a:hover,
-.post-type-archive-jetpack-portfolio .wp-block-categories-list a:hover,
-.post-type-archive-jetpack-portfolio .wp-block-categories-list a.active {
+.wp-block-categories a:hover,
+.wp-block-categories a.active {
 	text-decoration: underline;
 	text-decoration-color: var( --wp--preset--color--primary ) !important;
 	text-decoration-thickness: var( --wp--custom--text-decoration--thickness ) !important;
 	text-underline-offset: var( --wp--custom--text-underline--offset );
 }
 
-
-
-.post-type-archive-jetpack-portfolio .post-type-archive-jetpack-portfolio .wp-block-post {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
- 
 
 .post-type-archive-jetpack-portfolio .wp-block-read-more:after {
 	font: 23px/23px dashicons;
@@ -168,6 +143,14 @@ p.has-drop-cap:not(:focus)::first-letter {
     font-family: inherit;
 	font-weight: 300;
 }
+
+
+.taxonomy-jetpack-portfolio-tag.wp-block-post-terms a {
+	color: var(--wp--preset--color--contrast);
+	font-weight: 400;
+	text-decoration: none;
+}
+
 
 
 
