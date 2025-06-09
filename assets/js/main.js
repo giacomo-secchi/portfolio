@@ -82,20 +82,11 @@
                 console.error('Error fetching project:', error);
             
             }
-
-            
-
-            // Close the popup when clicking outside of it.
-            popupContainer.addEventListener('click', function( e ) {
-                if ( e.target.closest( '.popup-close' ) || e.target === popupContainer ) {
-                    closePopup();
-                }
-            });
  
-         
         });
     });
-    
+
+
     window.addEventListener( 'popstate', function(e) {
         // Se torniamo alla pagina portfolio (senza slug progetto), chiudi il popup
         if (!window.location.pathname.includes('/portfolio/')) {
