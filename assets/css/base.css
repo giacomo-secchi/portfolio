@@ -13,6 +13,11 @@ a:hover:not(.wp-element-button) {
 	text-underline-offset: var( --wp--custom--text-underline--offset-hover );
 } */
 
+:root {
+	--light-gray: color-mix(in srgb, var(--wp--preset--color--contrast) 4%, var(--wp--preset--color--base));
+	--dark-gray: color-mix(in srgb, var(--wp--preset--color--contrast) 24%, var(--wp--preset--color--base));
+}
+
 a:where(:not(.wp-element-button))[target="_blank"]:after {
 	font: 23px/23px dashicons;
 	content: "\f504";
@@ -35,20 +40,11 @@ p.has-drop-cap:not(:focus)::first-letter {
 
 /* Media query only for screens smaller than 482px */
 @media only screen and ( max-width: 482px ) {
-	/* .jetpack-portfolio > .wp-block-group,
-	.jetpack-portfolio .wp-block-cover {
-		width: 100vw;
-		position: relative;
-		left: 50%;
-		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
-	} */
 
 	.tax-jetpack-portfolio-tag header .is-content-justification-space-between,
 	.tax-jetpack-portfolio-type header .is-content-justification-space-between,
 	.post-type-archive-jetpack-portfolio header .is-content-justification-space-between {
-		justify-content: space-around;
+		/* justify-content: space-around; */
 	}
 }
 
@@ -58,7 +54,7 @@ p.has-drop-cap:not(:focus)::first-letter {
 
 @media screen and ( min-width: 601px ) {
 	.jetpack-portfolio:nth-child(odd) {
-		border-right: 1px solid var(--wp--preset--color--base);
+		border-right: 1px solid var(--light-gray);
 		padding-right: var(--wp--preset--spacing--70);
 	}
 
@@ -68,22 +64,39 @@ p.has-drop-cap:not(:focus)::first-letter {
 }
 
 .jetpack-portfolio {
-	border-top: 1px solid var(--wp--preset--color--base);
+	border-bottom: 1px solid var(--light-gray);
 }
 
 .post-type-archive-jetpack-portfolio .wp-block-categories-list {
     display: flex;
-    flex-wrap: wrap;
     list-style: none;
-	gap: var(--wp--preset--spacing--50);
-	padding: 0;
+	gap: var(--wp--preset--spacing--60);
+	padding-left: 0;
+	padding-bottom: var(--wp--preset--spacing--30);
+	overflow-x: auto;
+}
+ 
+
+.post-type-archive-jetpack-portfolio .wp-block-categories-list::-webkit-scrollbar {
+  height: 1px;
+}
+
+.post-type-archive-jetpack-portfolio .wp-block-categories-list::-webkit-scrollbar-track {
+  background: var(--light-gray); 
+}
+
+.post-type-archive-jetpack-portfolio .wp-block-categories-list::-webkit-scrollbar-thumb {
+  background: var(--dark-gray);
+}
+
+.post-type-archive-jetpack-portfolio .wp-block-categories-list::-webkit-scrollbar-thumb:hover {
+    background: var(--wp--preset--color--contrast);
 }
 
 .post-type-archive-jetpack-portfolio .wp-block-categories-list a {
     color: var(--wp--preset--color--primary);
+	text-wrap: nowrap;
     text-decoration: none;
-	font-weight: 300;
-    transition: all 0.3s ease;
 }
 
 .taxonomy-jetpack-portfolio-type a {
@@ -91,15 +104,13 @@ p.has-drop-cap:not(:focus)::first-letter {
 	text-decoration: none;
 }
 
+.taxonomy-jetpack-portfolio-type a:hover,
 .post-type-archive-jetpack-portfolio .wp-block-categories-list a:hover,
 .post-type-archive-jetpack-portfolio .wp-block-categories-list a.active {
-    /* color: var(--wp--preset--color--base); */
 	text-decoration: underline;
 	text-decoration-color: var( --wp--preset--color--primary ) !important;
 	text-decoration-thickness: var( --wp--custom--text-decoration--thickness ) !important;
 	text-underline-offset: var( --wp--custom--text-underline--offset );
-	transition: text-underline-offset var( --wp--custom--text-underline--offset-transition );
-
 }
 
 
@@ -107,16 +118,7 @@ p.has-drop-cap:not(:focus)::first-letter {
 .post-type-archive-jetpack-portfolio .post-type-archive-jetpack-portfolio .wp-block-post {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
-/* .post-type-archive-jetpack-portfolio .wp-block-post[style*="display: none"] {
-    opacity: 0;
-    transform: scale(0.95);
-    height: 0;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    border: none;
-} */
+ 
 
 .post-type-archive-jetpack-portfolio .wp-block-read-more:after {
 	font: 23px/23px dashicons;
@@ -126,7 +128,7 @@ p.has-drop-cap:not(:focus)::first-letter {
 	display: inline-block;
 	text-decoration: none;
 	vertical-align: text-bottom;
-	transform: rotate(45deg);
+	transform: rotate(-45deg);
 }
 
  .layer-open:after {
