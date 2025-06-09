@@ -77,10 +77,11 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 		}
 
 
-		public function remove_taxonomy_links($block_content, $block) {
-			if (isset($block['attrs']['term']) ) {
+		public function remove_taxonomy_links( $block_content, $block ) {
+
+			if ( isset( $block['attrs']['term'] ) && 'jetpack-portfolio-tag' === $block['attrs']['term'] ) {
 				// Remove all tag links from the block content.
-				$block_content = preg_replace('/<a\b[^>]*>(.*?)<\/a>/i', '$1', $block_content);
+				$block_content = preg_replace( '/<a\b[^>]*>(.*?)<\/a>/i', '$1', $block_content );
 			}
 			
 			return $block_content;

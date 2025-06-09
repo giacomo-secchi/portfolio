@@ -15,7 +15,7 @@
             if ( currentActiveFilter === category ) {
                 // Resetta mostrando tutto
                 portfolioItems.forEach( item => {
-                    item.classList.add( 'd-block' );
+                    item.classList.remove( 'd-none' );
                 } );
 
                 this.classList.remove('active');
