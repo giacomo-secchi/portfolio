@@ -32,8 +32,7 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 		 */
 		public function __construct() {
 
-			// Stampa tutti i post type registrati
-
+			// Stampa tutti i post type registrati.
 			add_filter( 'wp_body_open',  array( $this, 'popup_template' ), 10, 2 );
 
 			add_filter( 'render_block_core/read-more', array( $this, 'modify_readmore_blocks' ), 10, 2 );
@@ -85,46 +84,38 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 
 			if ( isset( $block['attrs']['term'] ) && 'jetpack-portfolio-tag' === $block['attrs']['term'] ) {
 				// Remove all tag links from the block content.
-				$block_content = preg_replace( '/<a\b[^>]*>(.*?)<\/a>/i', '$1', $block_content );
+				$processor = new \WP_HTML_Tag_Processor( $block_content );
+        
+				while ( $processor->next_tag( 'a' ) ) {
+					$processor->remove_attribute( 'href' );
+					$processor->remove_attribute( 'rel' );
+				}
+        
+        		$block_content = $processor->get_updated_html();
+
 			}
 			
+			// Return the updated HTML content
 			return $block_content;
 		}
-
  
-		public function get_project_types( $source_args, $block_instance, $attribute_name ) {
-			// If no key or user ID argument is set, bail early.
-			if ( ! isset( $source_args['key'] ) ) {
-				return null;
-			}
 
-			// Get the post ID.
-			$post_id = $block_instance->context["postId"];
 
-			// Define the taxonomy type based on the key argument.
-			$taxonomy = null;
+	
+	 
 
-			// Return the data based on the key argument.
-			switch ( $source_args['key'] ) {
-				case 'types':
-					$taxonomy  = self::CUSTOM_TAXONOMY_TYPE;
-					break;
-				case 'tags':
-					$taxonomy = self::CUSTOM_TAXONOMY_TAG;
-					break;
-				default:
-					return null;
-			}
 
-			//Returns All Term Items for the specified taxonomy.
-			$terms = wp_get_post_terms( $post_id, $taxonomy );
 
-			if ( is_wp_error( $terms ) ) {
-				return 'Error retrieving terms';
-			}
 
-			return implode( ', ', array_column( $terms, 'name' ) );
-		}
+
+
+
+
+
+
+
+
+
 
 		/**
 		 * Add a custom template to the footer.
