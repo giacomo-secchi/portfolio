@@ -47,7 +47,8 @@
             e.preventDefault();
      
             const popupContainer = document.querySelector( '.popup' );
-                 
+            const popupContent = document.querySelector( '.popup-content' );
+
   
             openPopup();
 
@@ -62,19 +63,14 @@
                 // Update the URL in the browser without reloading the page.
                 history.pushState({ project: response.slug }, '', button.href );
 
-            
 
-                popupContainer.insertAdjacentHTML('afterbegin', `
-                    <div class="popup-content">
-                        <h2>${response.title.rendered}</h2>
-                        <div class="entry-content">${response.content.rendered}</div>
-                    </div>
-                `);
+                popupContent.innerHTML= `<h2 id="popup-title">${response.title.rendered}</h2>
+                    <div class="entry-content">${response.content.rendered}</div>`;
 
                 popupContainer.setAttribute( 'aria-hidden', 'false' );
             } catch ( error ) {
 
-                popupContainer.innerHTML = `
+                popupContent.innerHTML = `
                 <p class="has-text-align-center">
                     ${wp.i18n.__('Errore di caricamento', 'twenties')}
                 </p>
@@ -82,7 +78,13 @@
                 console.error('Error fetching project:', error);
             
             }
- 
+
+            // Close the popup when clicking outside of it.
+            popupContainer.addEventListener('click', function( e ) {
+                if ( e.target.closest( '.popup-close' ) || e.target === popupContainer ) {
+                    closePopup();
+                }
+            });
         });
     });
 
@@ -94,7 +96,7 @@
         }
         // Altrimenti, gestisci il "forward" (es: se l'utente clicca AVANTI)
         else if (e.state && e.state.project) {
-            debugger;
+      
            openPopup(e.state.project); // Riapri il popup con il progetto corretto
         }
     } );
@@ -108,6 +110,7 @@
             popupContent.innerHTML = '';
         }
 
+        popupContainer.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('overflow-hidden', 'layer-open');
         popupContainer.classList.add('d-none');
         history.replaceState( null, '', '/portfolio/' );

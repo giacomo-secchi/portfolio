@@ -56,7 +56,7 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 				'main',
 				get_theme_file_uri( '/assets/js/main.js' ),
 				array( 'wp-api-fetch' ),
-				'1.1.0',
+				'1.2.0',
 				true
 			);
 		}
@@ -133,10 +133,11 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 		 */
 		public function popup_template() {
 			echo '
-                <div class="popup d-none">
+                <div class="popup d-none" aria-hidden="true" role="dialog">
                    	<button type="button" class="popup-close" data-dismiss="modal" aria-label="' . esc_html__( 'Close', 'twenties' ) . '">
 						<span aria-hidden="true">×</span>
-					</button>		
+					</button>	
+					<div class="popup-content" aria-labelledby="popup-title"></div>	
                 </div>';
 		}
 
