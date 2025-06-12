@@ -42,11 +42,13 @@ p.has-drop-cap:not(:focus)::first-letter {
 	background: transparent;
 	margin: 0 calc(-1 * var(--wp--preset--spacing--70));
 	max-width: unset;
+	
 }
  
 .jetpack-portfolio {
 	background: var(--wp--preset--color--white);
 	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--70);
+	overflow: hidden;
 }
 
 .wp-block-categories {
