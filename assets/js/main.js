@@ -38,8 +38,7 @@
         });
     });
 
-
-    
+     
     document.querySelectorAll( '.wp-block-read-more' ).forEach( button => {
         button.addEventListener( 'click', async ( e ) => {
             e.preventDefault();
@@ -50,20 +49,27 @@
   
             openPopup();
 
-            //popupContainer.innerHTML = '<div class="loading-message">Loading...</div>';
+            popupContent.innerHTML = `<div class="loading-message">Loading…</div>`;
 
              try {
-                const response = await wp.apiFetch({
-                    path: `/wp/v2/jetpack-portfolio/${button.dataset.projectId}?_fields=title,content,slug`,
-                    method: 'GET'
-                });
+                // Fetch the project data from the REST API.
+                const response = await fetch(
+                    `/wp-json/wp/v2/jetpack-portfolio/${button.dataset.projectId}?_fields=title,content,slug`
+                );
+
+                if ( ! response.ok ) {
+                    throw new Error('Network response was not ok');
+                }
+
+                 
+                const data = await response.json();
                  
                 // Update the URL in the browser without reloading the page.
-                history.pushState({ project: response.slug }, '', button.href );
+                history.pushState({ project: data.slug }, '', button.href );
 
 
-                popupContent.innerHTML= `<h2 id="popup-title">${response.title.rendered}</h2>
-                    <div class="entry-content">${response.content.rendered}</div>`;
+                popupContent.innerHTML= `<h2 id="popup-title">${data.title.rendered}</h2>
+                    <div class="entry-content">${data.content.rendered}</div>`;
 
                 popupContainer.setAttribute( 'aria-hidden', 'false' );
             } catch ( error ) {
@@ -71,8 +77,7 @@
                 popupContent.innerHTML = `
                 <p class="has-text-align-center">
                     ${wp.i18n.__('Errore di caricamento', 'twenties')}
-                </p>
-            `;
+                </p>`;
                 console.error('Error fetching project:', error);
             
             }
@@ -121,8 +126,6 @@
         popupContainer.classList.remove( 'd-none' );
     }
  
-
-
 
 } )();
 

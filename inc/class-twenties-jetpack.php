@@ -41,24 +41,10 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 			add_action( 'wp_ajax_nopriv_get_project',  array( $this, 'get_project_data' ), 10, 2 );
 
 			add_filter( 'render_block_core/post-terms', array( $this, 'remove_taxonomy_links' ), 10, 2 );
-
-			add_filter( 'init', function () {
-
-				add_filter( 'pre_render_block',  array( $this, 'load_scripts' ), 10, 2 );
-				 
-			}, 10, 2 );
 		}
+ 
 
 
-		public function load_scripts( $pre_render, $parsed_block ) {
-			wp_enqueue_script(
-				'main',
-				get_theme_file_uri( '/assets/js/main.js' ),
-				array( 'wp-api-fetch' ),
-				'1.2.0',
-				true
-			);
-		}
 
 		function modify_readmore_blocks( $block_content, $block ) {
 			if ( isset( $block['blockName'] ) && 'core/read-more' === $block['blockName'] ) {
@@ -98,21 +84,6 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 			// Return the updated HTML content
 			return $block_content;
 		}
- 
-
-
-	
-	 
-
-
-
-
-
-
-
-
-
-
 
 
 
