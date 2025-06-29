@@ -1,9 +1,9 @@
 <?php
 /**
- * Twenties Child Class
+ * Portfolio Website Child Class
  *
  * @since    0.0.1
- * @package  Twenty_Twenty_Child
+ * @package  Portfolio
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,12 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 
-if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
+if ( ! class_exists( 'Portfolio_Jetpack' ) ) :
 
 	/**
-	 * The main Twenties class
+	 * The main Portfolio class
 	 */
-	class Twenties_Child_Jetpack {
+	class Portfolio_Jetpack {
 		const CUSTOM_POST_TYPE       = 'jetpack-portfolio';
 		const CUSTOM_TAXONOMY_TYPE   = 'jetpack-portfolio-type';
 		const CUSTOM_TAXONOMY_TAG    = 'jetpack-portfolio-tag';
@@ -96,7 +96,7 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 		public function popup_template() {
 			echo '
                 <div class="popup d-none" aria-hidden="true" role="dialog">
-                   	<button type="button" class="popup-close" data-dismiss="modal" aria-label="' . esc_html__( 'Close', 'twenties' ) . '">
+                   	<button type="button" class="popup-close" data-dismiss="modal" aria-label="' . esc_html__( 'Close', 'portfolio' ) . '">
 						<span aria-hidden="true">×</span>
 					</button>	
 					<div class="popup-content" aria-labelledby="popup-title"></div>	
@@ -121,4 +121,4 @@ if ( ! class_exists( 'Twenties_Child_Jetpack' ) ) :
 	}
 endif;
 
-return new Twenties_Child_Jetpack();
+return new Portfolio_Jetpack();

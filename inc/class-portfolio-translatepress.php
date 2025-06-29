@@ -1,21 +1,21 @@
 <?php
 /**
- * Twenties Child Class
+ * Portfolio Child Theme Class
  *
  * @since    0.0.1
- * @package  Twenty_Twenty_Child
+ * @package  Portfolio
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Twenties_Child_Translatepress' ) ) :
+if ( ! class_exists( 'Portfolio_Translatepress' ) ) :
 
 	/**
-	 * The main Twenties class
+	 * The main Portfolio class
 	 */
-	class Twenties_Child_TranslatePress {
+	class Portfolio_TranslatePress {
 
 		/**
 		 * Setup class.
@@ -29,7 +29,7 @@ if ( ! class_exists( 'Twenties_Child_Translatepress' ) ) :
 
 		public function register_block_bindings() {
 			register_block_bindings_source( 'blank/translatepress-language-switcher', array(
-				'label'              => __( 'Translatepress Language Switcher', 'twenties' ),
+				'label'              => __( 'Translatepress Language Switcher', 'portfolio' ),
 				'get_value_callback' => array( $this, 'custom_language_switcher' )
 			) );
 		}
@@ -59,4 +59,4 @@ if ( ! class_exists( 'Twenties_Child_Translatepress' ) ) :
 	}
 endif;
 
-return new Twenties_Child_TranslatePress();
+return new Portfolio_TranslatePress();

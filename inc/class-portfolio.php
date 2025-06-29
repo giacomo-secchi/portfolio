@@ -1,21 +1,21 @@
 <?php
 /**
- * Twenties Child Class
+ * Portfolio Child Class
  *
  * @since    0.0.1
- * @package  Twenty_Twenty_Child
+ * @package  Portfolio
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Twenties_Child' ) ) :
+if ( ! class_exists( 'Portfolio' ) ) :
 
 	/**
-	 * The main Twenties class
+	 * The main Portfolio class
 	 */
-	class Twenties_Child {
+	class Portfolio {
 
 		/**
 		 * Setup class.
@@ -24,7 +24,6 @@ if ( ! class_exists( 'Twenties_Child' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup' ) );
-			add_action( 'init', array( $this, 'register_block_bindings' ) );
 			add_filter( 'writepoetry_register_block_style', array( $this, 'register_block_style' ) );
 			add_filter( 'wp_enqueue_scripts', array( $this, 'load_dashicons' ) );
 		}
@@ -43,14 +42,14 @@ if ( ! class_exists( 'Twenties_Child' ) ) :
 			 * Note: the first-loaded translation file overrides any following ones if the same translation is present.
 			 */
 
-			// Loads wp-content/languages/themes/storefront-it_IT.mo.
-			load_theme_textdomain( 'twenties', trailingslashit( WP_LANG_DIR ) . 'themes' );
+			// Loads wp-content/languages/themes/portfolio-it_IT.mo.
+			load_theme_textdomain( 'portfolio', trailingslashit( WP_LANG_DIR ) . 'themes' );
 
 			// Loads wp-content/themes/child-theme-name/languages/it_IT.mo.
-			load_theme_textdomain( 'twenties', get_stylesheet_directory() . '/languages' );
+			load_theme_textdomain( 'portfolio', get_stylesheet_directory() . '/languages' );
 
-			// Loads wp-content/themes/storefront/languages/it_IT.mo.
-			load_theme_textdomain( 'twenties', get_template_directory() . '/languages' );
+			// Loads wp-content/themes/portfolio/languages/it_IT.mo.
+			load_theme_textdomain( 'portfolio', get_template_directory() . '/languages' );
 
 
 
@@ -86,7 +85,7 @@ if ( ! class_exists( 'Twenties_Child' ) ) :
 				'core/list'	=> array(
 					array(
 						'name'			=> 'primary-disc-list',
-						'label'			=> __( 'Primary Color Disc', 'twenties' ),
+						'label'			=> __( 'Primary Color Disc', 'portfolio' ),
 						'inline_style' => '
 						ul.is-style-primary-disc-list {
 							list-style-type: disc;
@@ -98,7 +97,7 @@ if ( ! class_exists( 'Twenties_Child' ) ) :
 					),
 					array(
 						'name'			=> 'secondary-disc-list',
-						'label'			=> __( 'Secondary Color Disc', 'twenties' ),
+						'label'			=> __( 'Secondary Color Disc', 'portfolio' ),
 						'inline_style' => '
 						ul.is-style-secondary-disc-list {
 							list-style-type: disc;
@@ -113,22 +112,14 @@ if ( ! class_exists( 'Twenties_Child' ) ) :
 
 			return $block_styles;
 		}
-
-		public function register_block_bindings() {
-			register_block_bindings_source( 'twenties/copyright', array(
-				'label'              => __( 'Copyright', 'twenties' ),
-				'get_value_callback' => array( $this, 'copyright_binding' )
-			) );
-		}
-
-		public function copyright_binding() {
-			return '&copy; ' . date( 'Y' );
-		}
-
+		/**
+		 * Enqueue Dashicons for the frontend.
+		 *
+		 */		
 		function load_dashicons() {
     		wp_enqueue_style( 'dashicons' );
 		}
 	}
 endif;
 
-return new Twenties_Child();
+return new Portfolio();

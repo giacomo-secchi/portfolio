@@ -76,7 +76,7 @@
 
                 popupContent.innerHTML = `
                 <p class="has-text-align-center">
-                    ${wp.i18n.__('Errore di caricamento', 'twenties')}
+                    ${wp.i18n.__('Errore di caricamento', 'portfolio')}
                 </p>`;
                 console.error('Error fetching project:', error);
             

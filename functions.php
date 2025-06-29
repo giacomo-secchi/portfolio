@@ -1,34 +1,31 @@
 <?php
 /**
- * Twenties Child Theme
+ * portfolio Website Child Theme
  *
- * @package Twenty_Twenty_Child
+ * @package Portfolio
  */
 
 
-
-
-$twenties = (object) array(
+$portfolio = (object) array(
 
 	/**
 	 * Initialize all the things.
 	 */
-	'main'       => require 'inc/class-twenties.php',
+	'main'       => require 'inc/class-portfolio.php',
 );
 
 /**
  * Initialize Jetpack compatibility.
  */
 if ( class_exists( 'Jetpack' ) ) {
-	$twenties->jetpack = require 'inc/class-twenties-jetpack.php';
+	$portfolio->jetpack = require 'inc/class-portfolio-jetpack.php';
 }
 
 /**
  * Initialize TranslatePress - Multilingual compatibility.
  */
 if (class_exists( 'TRP_Translate_Press' ) ) {
-	$twenties->translatepress = require 'inc/class-twenties-translatepress.php';
+	$portfolio->translatepress = require 'inc/class-portfolio-translatepress.php';
 }
 
 
-// require 'inc/class-twenties-ajax.php';

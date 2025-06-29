@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Default Footer
- * Slug: twentytwentythree/footer-default
+ * Slug: portfolio/footer-default
  * Categories: footer
  * Block Types: core/template-part/footer
  */
@@ -21,10 +21,10 @@
 		<p class="has-text-align-right">
 			<?php
 			/* Translators: WordPress link. */
-			$wordpress_link = '<a href="' . esc_url( __( 'https://wordpress.org', 'twentytwentyfour' ) ) . '" rel="nofollow">WordPress</a>';
+			$wordpress_link = '<a href="' . esc_url( __( 'https://wordpress.org', 'portfolio' ) ) . '" rel="nofollow">WordPress</a>';
 			echo sprintf(
 				/* Translators: Designed with WordPress */
-				esc_html__( 'Designed with %1$s', 'twentytwentyfour' ),
+				esc_html__( 'Designed with %1$s', 'portfolio' ),
 				$wordpress_link
 			);
 			?>
