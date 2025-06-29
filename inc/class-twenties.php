@@ -26,6 +26,7 @@ if ( ! class_exists( 'Twenties_Child' ) ) :
 			add_action( 'after_setup_theme', array( $this, 'setup' ) );
 			add_action( 'init', array( $this, 'register_block_bindings' ) );
 			add_filter( 'writepoetry_register_block_style', array( $this, 'register_block_style' ) );
+			add_filter( 'wp_enqueue_scripts', array( $this, 'load_dashicons' ) );
 		}
 
 		/**
@@ -122,6 +123,10 @@ if ( ! class_exists( 'Twenties_Child' ) ) :
 
 		public function copyright_binding() {
 			return '&copy; ' . date( 'Y' );
+		}
+
+		function load_dashicons() {
+    		wp_enqueue_style( 'dashicons' );
 		}
 	}
 endif;
