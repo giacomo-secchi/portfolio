@@ -25,7 +25,7 @@ if ( ! class_exists( 'Portfolio' ) ) :
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup' ) );
 			add_filter( 'writepoetry_register_block_style', array( $this, 'register_block_style' ) );
-			add_filter( 'wp_enqueue_scripts', array( $this, 'load_dashicons' ) );
+			add_filter( 'blankspace_enable_dashicons', '__return_true' );
 		}
 
 		/**
@@ -112,13 +112,8 @@ if ( ! class_exists( 'Portfolio' ) ) :
 
 			return $block_styles;
 		}
-		/**
-		 * Enqueue Dashicons for the frontend.
-		 *
-		 */		
-		function load_dashicons() {
-    		wp_enqueue_style( 'dashicons' );
-		}
+
+
 	}
 endif;
 

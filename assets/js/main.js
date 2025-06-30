@@ -49,27 +49,22 @@
   
             openPopup();
 
-            popupContent.innerHTML = `<div class="loading-message">Loading…</div>`;
+            popupContent.innerHTML = `<div class="loading-message"> ${wp.i18n.__('Loading…', 'portfolio')}</div>`;
 
              try {
                 // Fetch the project data from the REST API.
-                const response = await fetch(
-                    `/wp-json/wp/v2/jetpack-portfolio/${button.dataset.projectId}?_fields=title,content,slug`
-                );
+                const response = await wp.apiFetch({
+                    path: `/wp/v2/jetpack-portfolio/${button.dataset.projectId}?_fields=title,content,slug`,
+                    method: 'GET'
+                });
 
-                if ( ! response.ok ) {
-                    throw new Error('Network response was not ok');
-                }
 
-                 
-                const data = await response.json();
-                 
                 // Update the URL in the browser without reloading the page.
-                history.pushState({ project: data.slug }, '', button.href );
+                history.pushState({ project: response.slug }, '', button.href );
 
 
-                popupContent.innerHTML= `<h2 id="popup-title">${data.title.rendered}</h2>
-                    <div class="entry-content">${data.content.rendered}</div>`;
+                popupContent.innerHTML= `<h2 id="popup-title">${response.title.rendered}</h2>
+                    <div class="entry-content">${response.content.rendered}</div>`;
 
                 popupContainer.setAttribute( 'aria-hidden', 'false' );
             } catch ( error ) {
