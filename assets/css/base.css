@@ -1,25 +1,27 @@
-/* a,
-a:not(.wp-element-button) {
-	text-decoration-color: var( --wp--preset--color--secondary ) !important;
-	text-decoration-thickness: var( --wp--custom--text-decoration--thickness ) !important;
-	text-underline-offset: var( --wp--custom--text-underline--offset );
-	transition: text-underline-offset var( --wp--custom--text-underline--offset-transition );
-} */
-/* 
-a:active,
-a:focus,
-a:hover,
-a:hover:not(.wp-element-button) {
-	text-underline-offset: var( --wp--custom--text-underline--offset-hover );
-} */
-
 :root {
 	--light-gray: color-mix(in srgb, var(--wp--preset--color--contrast) 4%, var(--wp--preset--color--base));
 	--dark-gray: color-mix(in srgb, var(--wp--preset--color--contrast) 24%, var(--wp--preset--color--base));
 }
 
+::-webkit-scrollbar {
+	height: 4px;
+	width: 4px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--dark-gray);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--wp--preset--color--contrast);
+}
+
 a:where(:not(.wp-element-button))[target="_blank"]:after {
-	font: 23px/23px dashicons;
+	font: 18px/100% dashicons;
 	content: "\f504";
 	position: relative;
 	padding-left: 3px;
@@ -36,13 +38,10 @@ p.has-drop-cap:not(:focus)::first-letter {
 	margin: var(--wp--custom--paragraph--dropcap--margin);
 }
 
-
-
 .post-type-archive-jetpack-portfolio .wp-block-post-template { 
 	background: transparent;
 	margin: 0 calc(-1 * var(--wp--preset--spacing--70));
 	max-width: unset;
-	
 }
  
 .jetpack-portfolio {
@@ -58,22 +57,6 @@ p.has-drop-cap:not(:focus)::first-letter {
 	padding-left: 0;
 	padding-bottom: var(--wp--preset--spacing--30);
 	overflow-x: auto;
-}
-
-.wp-block-categories::-webkit-scrollbar {
-  height: var(--wp--preset--spacing--10);
-}
-
-.wp-block-categories::-webkit-scrollbar-track {
-  background: var(--light-gray); 
-}
-
-.wp-block-categories::-webkit-scrollbar-thumb {
-  background: var(--dark-gray);
-}
-
-.wp-block-categories::-webkit-scrollbar-thumb:hover {
-    background: var(--wp--preset--color--contrast);
 }
 
 .wp-block-categories a {
@@ -98,7 +81,7 @@ p.has-drop-cap:not(:focus)::first-letter {
 
 
 .post-type-archive-jetpack-portfolio .wp-block-read-more:after {
-	font: 23px/23px dashicons;
+	font: 18px/100% dashicons;
 	content: "\f344";
 	position: relative;
 	padding-left: 3px;
@@ -120,8 +103,7 @@ p.has-drop-cap:not(:focus)::first-letter {
 }
 
 .popup {
-    background: var(--wp--preset--color--base);
-    padding: var(--wp--preset--spacing--60);
+	background: var(--wp--preset--color--base);
 	margin: clamp(
 		var(--wp--preset--spacing--40),  
 		var(--wp--preset--spacing--40) + 2vw,
@@ -133,19 +115,26 @@ p.has-drop-cap:not(:focus)::first-letter {
 	bottom: 0; 
     left: 0;
     right: 0;
-	overflow-y: scroll;
+	overflow-y: auto;
+}
+
+.popup-content {
+	margin: var(--wp--preset--spacing--80);
+    height: 100%;
+	max-height: 100vh;
 }
 
 .popup-close {
-    position: absolute;
+	font-family: inherit;
+	font-weight: 300;
+	position: sticky;
     top: 0;
-    right: var(--wp--preset--spacing--40);
+    float: right;
+    margin-right: var(--wp--preset--spacing--50);
     background: transparent;
     border: none;
     font-size: var(--wp--preset--font-size--xx-large);
     cursor: pointer;
-    font-family: inherit;
-	font-weight: 300;
 }
 
 

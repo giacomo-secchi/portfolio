@@ -103,9 +103,11 @@
         const popupContainer = document.querySelector( '.popup' );
         const popupContent = popupContainer.querySelector('.popup-content');
     
-        // Ripristina il contenuto originale (vuoto) mantenendo la struttura esistente
         if ( popupContent ) {
+            // Reset popup content.
             popupContent.innerHTML = '';
+            // Reset scroll position.
+            popupContainer.scrollTop = 0;
         }
 
         popupContainer.setAttribute('aria-hidden', 'true');
