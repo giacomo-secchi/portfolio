@@ -25,9 +25,9 @@
 					"name": "Vertical tertiary to base"
 				},
 				{
-					"slug": "diagonal-white-to-base",
-					"gradient": "linear-gradient(to bottom right,var(--wp--preset--color--white) 0%,var(--wp--preset--color--base) 100%)",
-					"name": "Diagonal white to base"
+					"slug": "diagonal-base-to-white",
+					"gradient": "linear-gradient(to bottom right,var(--wp--preset--color--base) 0%,var(--wp--preset--color--white) 100%)",
+					"name": "Diagonal base to white"
 				},
 				{
 					"slug": "diagonal-primary-to-contrast",
@@ -463,7 +463,7 @@
 			}
 		},
 		"color": {
-			"gradient": "var(--wp--preset--gradient--diagonal-white-to-base)",
+			"gradient": "var(--wp--preset--gradient--diagonal-base-to-white)",
 			"text": "var(--wp--preset--color--contrast)"
 		},
 		"elements": {

@@ -40,22 +40,20 @@ p.has-drop-cap:not(:focus)::first-letter {
 
 .post-type-archive-jetpack-portfolio .wp-block-post-template { 
 	background: transparent;
-	margin: 0 calc(-1 * var(--wp--preset--spacing--70));
-	max-width: unset;
+
 }
  
 .jetpack-portfolio {
 	background: var(--wp--preset--color--white);
-	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--70);
+	padding: var(--wp--preset--spacing--70);
 	overflow: hidden;
 }
 
 .wp-block-categories {
     display: flex;
     list-style: none;
-	gap: var(--wp--preset--spacing--60);
-	padding-left: 0;
-	padding-bottom: var(--wp--preset--spacing--30);
+	gap: var(--wp--preset--spacing--50);
+	padding: 0;
 	overflow-x: auto;
 }
 
