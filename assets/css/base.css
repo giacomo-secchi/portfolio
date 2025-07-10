@@ -40,7 +40,8 @@ p.has-drop-cap:not(:focus)::first-letter {
 
 .post-type-archive-jetpack-portfolio .wp-block-post-template { 
 	background: transparent;
-
+	margin: 0 calc(-1 * var(--wp--preset--spacing--70));
+	max-width: unset;
 }
  
 .jetpack-portfolio {
