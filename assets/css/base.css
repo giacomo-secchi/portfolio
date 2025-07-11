@@ -60,8 +60,8 @@ p.has-drop-cap:not(:focus)::first-letter {
 
 .wp-block-categories a {
     color: var(--wp--preset--color--primary);
-	text-wrap: nowrap;
     text-decoration: none;
+	white-space: nowrap;
 }
 
 .taxonomy-jetpack-portfolio-type a {
